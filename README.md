@@ -1,5 +1,5 @@
-# LMS Client (Project 3) ([Live Demo](https://project-3-lms.vercel.app/))
-> Learning Management System. Check out our backend here [LMS Server](https://github.com/jasonlerit/project-3-lms-server)
+# LMS Client (Project 3) ([Live Demo]())
+> Learning Management System. Check out our backend here [LMS Server]()
 
 ## 💻 Tech Stack
 > - React
