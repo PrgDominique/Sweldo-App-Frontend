@@ -1,5 +1,5 @@
-# LMS Client (Project 3) ([Live Demo]())
-> Learning Management System. Check out our backend here [LMS Server]()
+# Sweldo-App Client (Project 3) ([Live Demo]())
+> Sweldo App. Check out our backend here [Sweldo-App-Server]()
 
 ## 💻 Tech Stack
 > - React
