@@ -12,7 +12,7 @@ import Home from './pages/home'
 // Auth
 import LoginPage from './pages/auth/login'
 import Register from './pages/auth/register'
-import ForgotPassword from './pages/forgot_password'
+import ForgotPassword from './pages/auth/forgot_password'
 import ResetPasswordPage from './pages/auth/reset_password'
 
 // Verify
