@@ -6,12 +6,12 @@ import SubmitButton from '../ui/buttons/SubmitButton'
 import AuthInput from '../ui/inputs/AuthInput'
 
 const RegisterForm = () => {
-
   const [formData, setFormData] = useState({
     first_name: '',
     last_name: '',
     email: '',
     password: '',
+    confirm_password: '',
   })
 
   const [loading, setLoading] = useState(false)
@@ -23,8 +23,14 @@ const RegisterForm = () => {
     setError(undefined)
     setSuccess(undefined)
 
+    if (formData.password !== formData.confirm_password) {
+      setError({ message: 'Passwords do not match', type: 'confirm_password' })
+      setLoading(false)
+      return
+    }
+
     try {
-      const result = await fetch('http://127.0.0.1:8000/api/register', {
+      const result = await fetch('https://sweldoapi.hoster.ph/api/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -35,6 +41,7 @@ const RegisterForm = () => {
       if (result.status === 400) {
         setError(response)
       }
+
       if (result.status === 200) {
         setFormData((prevData) => {
           return {
@@ -43,6 +50,7 @@ const RegisterForm = () => {
             last_name: '',
             email: '',
             password: '',
+            confirm_password: '',
           }
         })
         setSuccess(response)
@@ -109,6 +117,21 @@ const RegisterForm = () => {
           }
           error={
             error !== undefined && error.type === 'password'
+              ? error.message
+              : null
+          }
+        />
+        <AuthInput
+          label='Confirm Password'
+          id='confirm_password'
+          type='password'
+          placeholder='Strong Password'
+          value={formData.confirm_password}
+          onChange={(e) =>
+            setFormData({ ...formData, confirm_password: e.target.value })
+          }
+          error={
+            error !== undefined && error.type === 'confirm_password'
               ? error.message
               : null
           }
