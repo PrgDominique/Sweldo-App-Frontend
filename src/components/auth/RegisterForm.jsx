@@ -1,12 +1,11 @@
 import { useState } from 'react'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import DangerAlert from '../ui/alerts/DangerAlert'
 import SuccessAlert from '../ui/alerts/SuccessAlert'
 import SubmitButton from '../ui/buttons/SubmitButton'
 import AuthInput from '../ui/inputs/AuthInput'
 
 const RegisterForm = () => {
-  const navigate = useNavigate()
 
   const [formData, setFormData] = useState({
     first_name: '',
