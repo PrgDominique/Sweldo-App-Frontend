@@ -1,4 +1,4 @@
-# Sweldo App Client (Project 3) ([Live Demo]())
+# Sweldo App Client (Project 3) ([Live Demo](https://sweldo-app-frontend.vercel.app/))
 > Sweldo App. Check out our backend here [Sweldo App Server](https://github.com/PrgDominique/sweldo-app-server)
 
 ## 💻 Tech Stack
