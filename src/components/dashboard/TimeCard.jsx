@@ -1,8 +1,9 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import SubmitTimeButton from '../ui/buttons/SubmitTimeButton'
 import * as RestApi from '../../utils/rest_api_util'
+import SuccessAlert from '../ui/alerts/SuccessAlert'
 
-const TimeButton = ({}) => {
+const TimeCard = ({ isClockIn }) => {
   const [timeIn, setTimeIn] = useState(true)
   const [timeOut, setTimeOut] = useState(false)
   const [loading, setLoading] = useState(false)
@@ -24,9 +25,21 @@ const TimeButton = ({}) => {
         setTimeOut(true)
         setTimeIn(false)
       }
+      setSuccess(response)
     } catch (error) {}
     setLoading(false)
   }
+
+  // rerender the isClockIn state after clock in
+  //and clean the success message after 3 seconds
+  useEffect(() => {
+    RestApi.getDashboard()
+
+    const timer = setTimeout(() => {
+      setSuccess(undefined)
+    }, 3000)
+    return () => clearTimeout(timer)
+  }, [isClockIn])
 
   //button timeout function
   const handleTimeOut = async () => {
@@ -43,6 +56,7 @@ const TimeButton = ({}) => {
         setTimeOut(false)
         setTimeIn(true)
       }
+      setSuccess(response)
     } catch (error) {}
     setLoading(false)
   }
@@ -51,16 +65,22 @@ const TimeButton = ({}) => {
     //default Time In button
     <>
       {
-        // if timeIn is false, show Time In button
-        timeIn ? (
-          <SubmitTimeButton name='Time In' onClick={handleTimeIn} />
+        // if User already clock in, show Time Out button
+        isClockIn ? (
+          <>
+            <SubmitTimeButton name='Time Out' onClick={handleTimeOut} />
+            <SuccessAlert message={success?.message} />
+          </>
         ) : (
-          // if timeIn is true, show Time Out button
-          <SubmitTimeButton name='Time Out' onClick={handleTimeOut} />
+          // if User already clock out, show Time In button
+          <>
+            <SubmitTimeButton name='Time In' onClick={handleTimeIn} />
+            <SuccessAlert message={success?.message} />
+          </>
         )
       }
     </>
   )
 }
 
-export default TimeButton
+export default TimeCard
