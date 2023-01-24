@@ -4,6 +4,7 @@ import './App.css'
 
 // Layouts
 import Layout from './components/layouts/Layout'
+import AuthLayout from './components/layouts/AuthLayout'
 import PortalLayout from './components/layouts/PortalLayout'
 
 // Main
@@ -37,21 +38,27 @@ const router = createBrowserRouter([
       },
     ],
   },
+  // Auth
   {
-    path: 'register',
-    element: <Register />,
-  },
-  {
-    path: 'login',
-    element: <LoginPage />,
-  },
-  {
-    path: 'forgot-password',
-    element: <ForgotPassword />,
-  },
-  {
-    path: 'reset-password',
-    element: <ResetPasswordPage />,
+    element: <AuthLayout />,
+    children: [
+      {
+        path: 'register',
+        element: <Register />,
+      },
+      {
+        path: 'login',
+        element: <LoginPage />,
+      },
+      {
+        path: 'forgot-password',
+        element: <ForgotPassword />,
+      },
+      {
+        path: 'reset-password',
+        element: <ResetPasswordPage />,
+      },
+    ],
   },
   // Verify
   {
