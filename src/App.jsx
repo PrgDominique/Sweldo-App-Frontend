@@ -4,6 +4,7 @@ import './App.css'
 
 // Layouts
 import Layout from './components/layouts/Layout'
+import AuthLayout from './components/layouts/AuthLayout'
 import PortalLayout from './components/layouts/PortalLayout'
 
 // Main
@@ -20,11 +21,9 @@ import VerifyAccountPage from './pages/verify/verify_account'
 
 // Portal
 import Dashboard from './pages/portal/dashboard'
-import Course from './pages/portal/course'
 
 // Not found
 import PageNotFound from './pages/404'
-import Modal from './pages/portal/modal'
 
 const router = createBrowserRouter([
   // Main
@@ -37,21 +36,27 @@ const router = createBrowserRouter([
       },
     ],
   },
+  // Auth
   {
-    path: 'register',
-    element: <Register />,
-  },
-  {
-    path: 'login',
-    element: <LoginPage />,
-  },
-  {
-    path: 'forgot-password',
-    element: <ForgotPassword />,
-  },
-  {
-    path: 'reset-password',
-    element: <ResetPasswordPage />,
+    element: <AuthLayout />,
+    children: [
+      {
+        path: 'register',
+        element: <Register />,
+      },
+      {
+        path: 'login',
+        element: <LoginPage />,
+      },
+      {
+        path: 'forgot-password',
+        element: <ForgotPassword />,
+      },
+      {
+        path: 'reset-password',
+        element: <ResetPasswordPage />,
+      },
+    ],
   },
   // Verify
   {
@@ -66,20 +71,8 @@ const router = createBrowserRouter([
         path: 'dashboard',
         element: <Dashboard />,
       },
-      {
-        path: 'course',
-        element: <Course />,
-      },
-      {
-        path: 'modal',
-        element: <Modal />,
-      },
-      // TODO: Course
-      // TODO: Batch
-      // TODO: etc
     ],
   },
-
   // 404
   {
     path: '*',
