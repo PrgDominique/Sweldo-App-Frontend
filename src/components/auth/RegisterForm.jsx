@@ -61,7 +61,7 @@ const RegisterForm = () => {
             id='first_name'
             type='text'
             placeholder='John'
-            value={formData.email}
+            value={formData.first_name}
             onChange={(e) =>
               setFormData({ ...formData, first_name: e.target.value })
             }
@@ -76,7 +76,7 @@ const RegisterForm = () => {
             id='last_name'
             type='text'
             placeholder='Doe'
-            value={formData.email}
+            value={formData.last_name}
             onChange={(e) =>
               setFormData({ ...formData, last_name: e.target.value })
             }
