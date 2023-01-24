@@ -1,52 +1,28 @@
 import { NavLink } from 'react-router-dom'
+import SidebarButton from './ui/buttons/SidebarButton'
 
 const Sidebar = () => {
   return (
-    <nav className='p-5 bg-gray-500 h-screen'>
-      <div>
-        <ul className='space-y-5'>
-          <li>
-            <NavLink
-              to='dashboard'
-              className='bg-blue-700 hover:bg-blue-500 text-white px-4 py-2'
-            >
-              Dashboard
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to='dashboard'
-              className='hover:bg-blue-500 text-white px-4 py-2'
-            >
-              Calendar
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to='dashboard'
-              className='hover:bg-blue-500 text-white px-4 py-2'
-            >
-              My Sweldo
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to='dashboard'
-              className='hover:bg-blue-500 text-white px-4 py-2'
-            >
-              Profile
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to='dashboard'
-              className='hover:bg-blue-500 text-white px-4 py-2'
-            >
-              Logout
-            </NavLink>
-          </li>
-        </ul>
-      </div>
+    <nav className='bg-gray-500 h-screen w-64'>
+      <ul className='w-full space-y-5 flex flex-col bg-white/50 p-5'>
+        <li className='flex'>
+          <SidebarButton name='Dashboard' to='dashboard' />
+        </li>
+        <li className='flex'>
+          <SidebarButton name='Calendar' to='calendar' />
+        </li>
+        <li className='flex'>
+          <SidebarButton name='My Sweldo' to='my-sweldo' />
+        </li>
+        <li className='flex'>
+          <SidebarButton name='Profile' to='profile' />
+        </li>
+        <li className='flex'>
+          <button>
+            Logout
+          </button>
+        </li>
+      </ul>
     </nav>
   )
 }

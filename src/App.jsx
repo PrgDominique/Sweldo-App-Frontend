@@ -21,6 +21,7 @@ import VerifyAccountPage from './pages/verify/verify_account'
 
 // Portal
 import Dashboard from './pages/portal/dashboard'
+import Profile from './pages/portal/profile'
 
 // Not found
 import PageNotFound from './pages/404'
@@ -71,6 +72,10 @@ const router = createBrowserRouter([
         path: 'dashboard',
         element: <Dashboard />,
       },
+      {
+        path: 'profile',
+        element: <Profile />
+      }
     ],
   },
   // 404
