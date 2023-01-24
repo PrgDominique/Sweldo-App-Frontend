@@ -4,6 +4,7 @@ import DangerAlert from '../ui/alerts/DangerAlert'
 import SuccessAlert from '../ui/alerts/SuccessAlert'
 import SubmitButton from '../ui/buttons/SubmitButton'
 import AuthInput from '../ui/inputs/AuthInput'
+import * as RestApi from '../../utils/rest_api_util'
 
 const LoginForm = () => {
   const navigate = useNavigate()
@@ -23,13 +24,7 @@ const LoginForm = () => {
     setSuccess(undefined)
 
     try {
-      const result = await fetch('http://127.0.0.1:8000/api/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      })
+      const result = await RestApi.login(formData)
       const response = await result.json()
       if (result.status === 400) {
         setError(response)
@@ -42,8 +37,7 @@ const LoginForm = () => {
             password: '',
           }
         })
-        setSuccess(response)
-        // TODO: Save data
+        localStorage.setItem('token', response.user.access_token)
         navigate('/dashboard')
       }
     } catch (error) {}

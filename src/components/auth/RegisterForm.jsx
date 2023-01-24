@@ -4,6 +4,7 @@ import DangerAlert from '../ui/alerts/DangerAlert'
 import SuccessAlert from '../ui/alerts/SuccessAlert'
 import SubmitButton from '../ui/buttons/SubmitButton'
 import AuthInput from '../ui/inputs/AuthInput'
+import * as RestApi from '../../utils/rest_api_util'
 
 const RegisterForm = () => {
   const [formData, setFormData] = useState({
@@ -24,19 +25,16 @@ const RegisterForm = () => {
     setSuccess(undefined)
 
     if (formData.password !== formData.confirm_password) {
-      setError({ message: 'Passwords do not match', type: 'confirm_password' })
+      setError({
+        message: 'Passwords do not match',
+        type: 'confirm_password',
+      })
       setLoading(false)
       return
     }
 
     try {
-      const result = await fetch('http://127.0.0.1:8000/api/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      })
+      const result = await RestApi.register(formData)
       const response = await result.json()
       if (result.status === 400) {
         setError(response)
