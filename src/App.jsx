@@ -8,9 +8,11 @@ import PortalLayout from './components/layouts/PortalLayout'
 
 // Main
 import Home from './pages/home'
+
+// Auth
 import LoginPage from './pages/auth/login'
-import Register from './pages/register'
-import ForgotPassword from './pages/forgot_password'
+import Register from './pages/auth/register'
+import ForgotPassword from './pages/auth/forgot_password'
 import ResetPasswordPage from './pages/auth/reset_password'
 
 // Verify
@@ -33,23 +35,23 @@ const router = createBrowserRouter([
         path: '',
         element: <Home />,
       },
-      {
-        path: 'register',
-        element: <Register />,
-      },
-      {
-        path: 'login',
-        element: <LoginPage />,
-      },
-      {
-        path: 'forgot-password',
-        element: <ForgotPassword />,
-      },
-      {
-        path: 'reset-password',
-        element: <ResetPasswordPage />,
-      },
     ],
+  },
+  {
+    path: 'register',
+    element: <Register />,
+  },
+  {
+    path: 'login',
+    element: <LoginPage />,
+  },
+  {
+    path: 'forgot-password',
+    element: <ForgotPassword />,
+  },
+  {
+    path: 'reset-password',
+    element: <ResetPasswordPage />,
   },
   // Verify
   {

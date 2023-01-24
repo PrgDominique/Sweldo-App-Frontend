@@ -1,14 +1,15 @@
 import { useState } from 'react'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import DangerAlert from '../ui/alerts/DangerAlert'
 import SuccessAlert from '../ui/alerts/SuccessAlert'
 import SubmitButton from '../ui/buttons/SubmitButton'
 import AuthInput from '../ui/inputs/AuthInput'
 
-const LoginForm = () => {
-  const navigate = useNavigate()
+const RegisterForm = () => {
 
   const [formData, setFormData] = useState({
+    first_name: '',
+    last_name: '',
     email: '',
     password: '',
   })
@@ -23,7 +24,7 @@ const LoginForm = () => {
     setSuccess(undefined)
 
     try {
-      const result = await fetch('http://127.0.0.1:8000/api/login', {
+      const result = await fetch('http://127.0.0.1:8000/api/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -38,13 +39,13 @@ const LoginForm = () => {
         setFormData((prevData) => {
           return {
             ...prevData,
+            first_name: '',
+            last_name: '',
             email: '',
             password: '',
           }
         })
         setSuccess(response)
-        // TODO: Save data
-        navigate('/dashboard')
       }
     } catch (error) {}
     setLoading(false)
@@ -52,8 +53,40 @@ const LoginForm = () => {
 
   return (
     <>
-      <h1 className='mb-4 text-3xl font-bold'>Login</h1>
+      <h1 className='mb-4 text-3xl font-bold'>Register</h1>
       <div className='mb-8 space-y-4'>
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
+          <AuthInput
+            label='First Name'
+            id='first_name'
+            type='text'
+            placeholder='John'
+            value={formData.email}
+            onChange={(e) =>
+              setFormData({ ...formData, first_name: e.target.value })
+            }
+            error={
+              error !== undefined && error.type === 'first_name'
+                ? error.message
+                : null
+            }
+          />
+          <AuthInput
+            label='Last Name'
+            id='last_name'
+            type='text'
+            placeholder='Doe'
+            value={formData.email}
+            onChange={(e) =>
+              setFormData({ ...formData, last_name: e.target.value })
+            }
+            error={
+              error !== undefined && error.type === 'last_name'
+                ? error.message
+                : null
+            }
+          />
+        </div>
         <AuthInput
           label='Email'
           id='email'
@@ -80,9 +113,6 @@ const LoginForm = () => {
               : null
           }
         />
-        <small>
-          <NavLink to='/forgot-password'>Forgot Password</NavLink>
-        </small>
         <DangerAlert
           message={
             error !== undefined && error.type === undefined
@@ -93,17 +123,21 @@ const LoginForm = () => {
         <SuccessAlert message={success?.message} />
       </div>
       <div className='mb-8'>
-        <SubmitButton name='Login' onClick={handleSubmit} loading={loading} />
+        <SubmitButton
+          name='Register'
+          onClick={handleSubmit}
+          loading={loading}
+        />
       </div>
       <hr className='mb-4' />
       <div>
-        Don't have an account?{' '}
+        Already have an account?{' '}
         <strong>
-          <NavLink to='/register'>Register</NavLink>
+          <NavLink to='/login'>Login</NavLink>
         </strong>
       </div>
     </>
   )
 }
 
-export default LoginForm
+export default RegisterForm
