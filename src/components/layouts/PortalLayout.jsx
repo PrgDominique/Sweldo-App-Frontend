@@ -11,7 +11,7 @@ const PortalLayout = () => {
       navigate('/')
       return
     }
-  })
+  }, [])
 
   return (
     <div className='flex'>

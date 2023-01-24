@@ -17,3 +17,6 @@ export const register = async (data) => await fetch(baseUrl + "/register", { met
 export const login = async (data) => await fetch(baseUrl + "/login", { method: "POST", headers: getHeaders(), body: JSON.stringify(data) })
 export const forgotPassword = async (data) => await fetch(baseUrl + "/forgot-password", { method: "POST", headers: getHeaders(), body: JSON.stringify(data) })
 export const resetPassword = async (data) => await fetch(baseUrl + "/reset-password", { method: "POST", headers: getHeaders(), body: JSON.stringify(data) })
+
+// Portal
+export const getDashboard = async () => await fetch(baseUrl + "/dashboard", { method: "GET", headers: getHeaders() })
