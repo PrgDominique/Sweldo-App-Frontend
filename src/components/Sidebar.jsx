@@ -13,26 +13,6 @@ const Sidebar = () => {
               Dashboard
             </NavLink>
           </li>
-          <li>
-            <NavLink to='course' className='px-4 py-2'>
-              Course
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to='batch' className='px-4 py-2'>
-              Batch
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to='user' className='px-4 py-2'>
-              User
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to='settings' className='px-4 py-2'>
-              Settings
-            </NavLink>
-          </li>
         </ul>
       </div>
     </nav>
