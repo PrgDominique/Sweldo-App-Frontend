@@ -20,3 +20,9 @@ export const resetPassword = async (data) => await fetch(baseUrl + "/reset-passw
 
 // Portal
 export const getDashboard = async () => await fetch(baseUrl + "/dashboard", { method: "GET", headers: getHeaders() })
+
+//clock in 
+export const clockIn = async (data) => await fetch(baseUrl + "/dashboard/clock-in", { method: "POST", headers: getHeaders() })
+
+//clock out
+export const clockOut = async (data) => await fetch(baseUrl + "/dashboard/clock-out", { method: "POST", headers: getHeaders() })

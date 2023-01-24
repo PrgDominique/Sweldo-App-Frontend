@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import SubmitTimeButton from '../ui/buttons/SubmitTimeButton'
+import * as RestApi from '../../utils/rest_api_util'
 
 const TimeButton = ({}) => {
-  const [timeIn, setTimeIn] = useState(false)
-  const [timeOut, setTimeOut] = useState(true)
+  const [timeIn, setTimeIn] = useState(true)
+  const [timeOut, setTimeOut] = useState(false)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState()
   const [success, setSuccess] = useState()
@@ -13,9 +14,18 @@ const TimeButton = ({}) => {
     setLoading(true)
     setError(undefined)
     setSuccess(undefined)
-
-    setTimeOut(true)
-    setTimeIn(false)
+    try {
+      const result = await RestApi.clockIn()
+      const response = await result.json()
+      if (result.status === 400) {
+        setError(response)
+      }
+      if (result.status === 200) {
+        setTimeOut(true)
+        setTimeIn(false)
+      }
+    } catch (error) {}
+    setLoading(false)
   }
 
   //button timeout function
@@ -23,8 +33,18 @@ const TimeButton = ({}) => {
     setLoading(true)
     setError(undefined)
     setSuccess(undefined)
-    setTimeOut(false)
-    setTimeIn(true)
+    try {
+      const result = await RestApi.clockOut()
+      const response = await result.json()
+      if (result.status === 400) {
+        setError(response)
+      }
+      if (result.status === 200) {
+        setTimeOut(false)
+        setTimeIn(true)
+      }
+    } catch (error) {}
+    setLoading(false)
   }
 
   return (
