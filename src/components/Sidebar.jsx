@@ -13,6 +13,38 @@ const Sidebar = () => {
               Dashboard
             </NavLink>
           </li>
+          <li>
+            <NavLink
+              to='dashboard'
+              className='hover:bg-blue-500 text-white px-4 py-2'
+            >
+              Calendar
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to='dashboard'
+              className='hover:bg-blue-500 text-white px-4 py-2'
+            >
+              My Sweldo
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to='dashboard'
+              className='hover:bg-blue-500 text-white px-4 py-2'
+            >
+              Profile
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to='dashboard'
+              className='hover:bg-blue-500 text-white px-4 py-2'
+            >
+              Logout
+            </NavLink>
+          </li>
         </ul>
       </div>
     </nav>
