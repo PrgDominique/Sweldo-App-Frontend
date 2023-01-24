@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import SubmitTimeButton from '../ui/buttons/SubmitTimeButton'
 import * as RestApi from '../../utils/rest_api_util'
 import SuccessAlert from '../ui/alerts/SuccessAlert'
+import DangerAlert from '../ui/alerts/DangerAlert'
 
 const TimeCard = ({ isClockIn }) => {
   const [timeIn, setTimeIn] = useState(true)
@@ -9,6 +10,20 @@ const TimeCard = ({ isClockIn }) => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState()
   const [success, setSuccess] = useState()
+
+
+
+  // rerender the isClockIn state after clock in
+  //and clean the success message after 3 seconds
+  useEffect(() => {
+    RestApi.getDashboard()
+
+    const timer = setTimeout(() => {
+      setSuccess(undefined)
+    }, 3000)
+    return () => clearTimeout(timer)
+  }, [isClockIn])
+
 
   // button time in function
   const handleTimeIn = async () => {
@@ -30,16 +45,7 @@ const TimeCard = ({ isClockIn }) => {
     setLoading(false)
   }
 
-  // rerender the isClockIn state after clock in
-  //and clean the success message after 3 seconds
-  useEffect(() => {
-    RestApi.getDashboard()
 
-    const timer = setTimeout(() => {
-      setSuccess(undefined)
-    }, 3000)
-    return () => clearTimeout(timer)
-  }, [isClockIn])
 
   //button timeout function
   const handleTimeOut = async () => {
@@ -76,6 +82,8 @@ const TimeCard = ({ isClockIn }) => {
           <>
             <SubmitTimeButton name='Time In' onClick={handleTimeIn} />
             <SuccessAlert message={success?.message} />
+            <DangerAlert message={error?.message} />
+
           </>
         )
       }
