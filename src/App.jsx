@@ -22,6 +22,8 @@ import VerifyAccountPage from './pages/verify/verify_account'
 
 // User portal
 import Dashboard from './pages/portal/user/dashboard'
+import Calendar from './pages/portal/user/calendar'
+import MySweldo from './pages/portal/user/my-sweldo'
 import Profile from './pages/portal/user/profile'
 
 // Admin portal
@@ -29,8 +31,6 @@ import AdminDashboard from './pages/portal/admin/admin_dashboard'
 
 // Not found
 import PageNotFound from './pages/404'
-
-
 
 const router = createBrowserRouter([
   // Main
@@ -77,6 +77,14 @@ const router = createBrowserRouter([
       {
         path: 'dashboard',
         element: <Dashboard />,
+      },
+      {
+        path: 'calendar',
+        element: <Calendar />
+      },
+      {
+        path: 'my-sweldo',
+        element: <MySweldo />
       },
       {
         path: 'profile',
