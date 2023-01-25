@@ -36,15 +36,19 @@ const Dashboard = () => {
           <TimeCard isClockIn={isClockIn} />
 
         </div>
-        <div className='w-1/3 p-4 shadow-md lg:max-w-lg col-span-1 h-1/3'>
+        
+        <div className='w-1/3 p-5 shadow-md lg:max-w-lg gridcol-span-1 place-self-end h-auto '>
+          <Announcement />
+   </div>
+      </div>
+      <div className=' grid grid-cols-2 '>
+      <div className='w-1/3 p-4 shadow-md lg:max-w-lg col-span-1 h-auto'>
           <Calendar />
 
         </div>
-        <div className='w-1/3 p-5 shadow-md lg:max-w-lg col-span-1 place-self-end h-auto '>
-          <Announcement />
-          
-   </div>
+        
       </div>
+
     </>
   )
 }
