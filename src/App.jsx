@@ -25,6 +25,8 @@ import Profile from './pages/portal/user/profile'
 
 // Not found
 import PageNotFound from './pages/404'
+import AdminDashboard from './pages/portal/admin/admin_dashboard'
+import AdminLayout from './components/layouts/AdminLayout'
 
 const router = createBrowserRouter([
   // Main
@@ -64,7 +66,7 @@ const router = createBrowserRouter([
     path: '/verify/account',
     element: <VerifyAccountPage />,
   },
-  // Portal
+  // User Portal
   {
     element: <PortalLayout />,
     children: [
@@ -77,6 +79,17 @@ const router = createBrowserRouter([
         element: <Profile />
       }
     ],
+  },
+  // Admin Portal
+  {
+    path: 'admin',
+    element: <AdminLayout />,
+    children: [
+      {
+        path: 'dashboard',
+        element: <AdminDashboard />,
+      },
+    ]
   },
   // 404
   {
