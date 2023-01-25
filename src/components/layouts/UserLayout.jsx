@@ -27,8 +27,8 @@ const UserLayout = () => {
   }
 
   return (
-    <div className='flex overflow-x-hidden h-screen'>
-      <Sidebar activeSidebar={activeSidebar} />
+    <div className='flex overflow-x-hidden'>
+      <Sidebar activeSidebar={activeSidebar} toggleSidebar={toggleSidebar} />
       <div className='flex-1'>
         <PortalNavbar toggleSidebar={toggleSidebar} />
         <div className="p-5">

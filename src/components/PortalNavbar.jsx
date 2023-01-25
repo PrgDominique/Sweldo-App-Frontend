@@ -1,6 +1,6 @@
 const PortalNavbar = ({ toggleSidebar }) => {
   return (
-    <nav className='flex justify-between p-5 bg-black/50'>
+    <nav className='bg-black/75 h-20 flex justify-between items-center px-5'>
       <button
         className='bg-blue-600 text-white font-medium p-2 rounded hover:bg-blue-500'
         onClick={toggleSidebar}
