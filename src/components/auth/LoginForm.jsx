@@ -95,7 +95,12 @@ const LoginForm = () => {
         <SuccessAlert message={success?.message} />
       </div>
       <div className='mb-8'>
-        <SubmitButton name='Login' onClick={handleSubmit} loading={loading} />
+        <SubmitButton
+          name='Login'
+          onClick={handleSubmit}
+          loading={loading}
+          fullWidth={true}
+        />
       </div>
       <hr className='mb-4' />
       <div>
