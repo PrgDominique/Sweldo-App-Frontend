@@ -5,7 +5,8 @@ import './App.css'
 // Layouts
 import Layout from './components/layouts/Layout'
 import AuthLayout from './components/layouts/AuthLayout'
-import PortalLayout from './components/layouts/PortalLayout'
+import UserLayout from './components/layouts/UserLayout'
+import AdminLayout from './components/layouts/AdminLayout'
 
 // Main
 import Home from './pages/home'
@@ -19,14 +20,17 @@ import ResetPasswordPage from './pages/auth/reset_password'
 // Verify
 import VerifyAccountPage from './pages/verify/verify_account'
 
-// Portal
+// User portal
 import Dashboard from './pages/portal/user/dashboard'
 import Profile from './pages/portal/user/profile'
 
+// Admin portal
+import AdminDashboard from './pages/portal/admin/admin_dashboard'
+
 // Not found
 import PageNotFound from './pages/404'
-import AdminDashboard from './pages/portal/admin/admin_dashboard'
-import AdminLayout from './components/layouts/AdminLayout'
+
+
 
 const router = createBrowserRouter([
   // Main
@@ -68,7 +72,7 @@ const router = createBrowserRouter([
   },
   // User Portal
   {
-    element: <PortalLayout />,
+    element: <UserLayout />,
     children: [
       {
         path: 'dashboard',
