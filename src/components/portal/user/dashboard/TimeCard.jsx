@@ -10,6 +10,15 @@ const TimeCard = ({ isClockIn }) => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState()
   const [success, setSuccess] = useState()
+  const [time, setTime] = useState(new Date().toLocaleTimeString())
+
+  //temporary date
+  const options = {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+  }
 
   // rerender the isClockIn state after clock in
   //and clean the success message after 3 seconds
@@ -21,7 +30,6 @@ const TimeCard = ({ isClockIn }) => {
     }, 3000)
     return () => clearTimeout(timer)
   }, [isClockIn])
-
 
   // button time in function
   const handleTimeIn = async () => {
@@ -43,8 +51,6 @@ const TimeCard = ({ isClockIn }) => {
     setLoading(false)
   }
 
-
-
   //button timeout function
   const handleTimeOut = async () => {
     setLoading(true)
@@ -65,38 +71,59 @@ const TimeCard = ({ isClockIn }) => {
     setLoading(false)
   }
 
+  //get the current time every second
+
+  const date = new Date().toLocaleDateString('en-us', options)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTime(new Date().toLocaleTimeString())
+    }, 1000)
+    return () => clearInterval(interval)
+  }, [])
+
   return (
     //default Time In button
     <>
-   <div className="grid grid-cols-1">
+      <div className='grid grid-cols-1'>
+        <div className='flex justify-center'>
+          <h1 className='col-span-1 text-2xl mb-4'>{time}</h1>
+        </div>
 
-      {
-        // if User already clock in, show Time Out button
-        isClockIn ? (
-          <>
+        {
+          // if User already clock in, show Time Out button
+          isClockIn ? (
+            <>
+              <div className='grid mb-3'>
+                <SubmitButton
+                  name='Time Out'
+                  onClick={handleTimeOut}
+                  loading={loading}
+                />
+                <SuccessAlert message={success?.message} />
+              </div>
+            </>
+          ) : (
+            // if User already clock out, show Time In button
+            <>
+              <div className='grid mb-3'>
+                <SubmitButton
+                  name='Time In'
+                  onClick={handleTimeIn}
+                  loading={loading}
+                />
+              </div>
 
-          <div className="grid mb-3">
-            <SubmitButton name='Time Out' onClick={handleTimeOut} loading={loading} />
-            <SuccessAlert message={success?.message} />
-          </div>
-          </>
-        ) : (
-          // if User already clock out, show Time In button
-          <>
-          <div className="grid mb-3">
+              <SuccessAlert message={success?.message} />
+              <DangerAlert message={error?.message} />
+            </>
+          )
+        }
+        <div className="flex justify-center">
 
-
-            <SubmitButton name='Time In' onClick={handleTimeIn} loading={loading} />
-          </div>
-            
-            <SuccessAlert message={success?.message} />
-            <DangerAlert message={error?.message} />
-
-          </>
-        )
-      }
-   </div>
-     
+        <h1 className='text-1xl'>{date}</h1>
+        </div>
+      </div>
     </>
   )
 }

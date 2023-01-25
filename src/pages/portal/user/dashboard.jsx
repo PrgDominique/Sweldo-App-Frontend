@@ -30,13 +30,13 @@ const Dashboard = () => {
 
   return (
     <>
-    
-     <div className='w-1/2 p-5 shadow-md lg:max-w-lg  overflow-auto float-right announce'>
+
+     <div className='w-1/2 p-5 shadow-md lg:max-w-lg  overflow-auto float-right announce flex justify-center'>
               <Announcement />
             </div>
     <div className="flex gap-x-12 ">
 
-          <div className='w-1/4 p-4 shadow-md lg:max-w-lg h-auto'>
+          <div className='w-1/4 p-4 shadow-md lg:max-w-lg h-auto flex justify-center'>
             <TimeCard isClockIn={isClockIn} />
           </div>
           <div className='w-1/3 p-4 shadow-md lg:max-w-lg  h-auto flex  justify-center'>
