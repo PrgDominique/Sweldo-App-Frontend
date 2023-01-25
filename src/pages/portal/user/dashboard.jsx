@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import TimeCard from '../../components/dashboard/TimeCard'
-import * as RestApi from '../../utils/rest_api_util'
+import TimeCard from '../../../components/portal/user/dashboard/TimeCard'
+import * as RestApi from '../../../utils/rest_api_util'
 
 const Dashboard = () => {
   const [isClockIn, setIsClockIn] = useState(false)

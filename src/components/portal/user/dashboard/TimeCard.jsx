@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
-import SubmitTimeButton from '../ui/buttons/SubmitTimeButton'
-import * as RestApi from '../../utils/rest_api_util'
-import SuccessAlert from '../ui/alerts/SuccessAlert'
-import DangerAlert from '../ui/alerts/DangerAlert'
+import SubmitTimeButton from '../../../ui/buttons/SubmitTimeButton'
+import * as RestApi from '../../../../utils/rest_api_util'
+import SuccessAlert from '../../../ui/alerts/SuccessAlert'
+import DangerAlert from '../../../ui/alerts/DangerAlert'
 
 const TimeCard = ({ isClockIn }) => {
   const [timeIn, setTimeIn] = useState(true)
@@ -10,8 +10,6 @@ const TimeCard = ({ isClockIn }) => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState()
   const [success, setSuccess] = useState()
-
-
 
   // rerender the isClockIn state after clock in
   //and clean the success message after 3 seconds
