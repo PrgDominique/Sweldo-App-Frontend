@@ -37,7 +37,7 @@ const Dashboard = () => {
 
         </div>
         
-        <div className='w-1/3 p-5 shadow-md lg:max-w-lg gridcol-span-1 place-self-end h-auto '>
+        <div className='w-1/2 p-5 shadow-md lg:max-w-lg gridcol-span-1 place-self-end h-4/5 overflow-auto'>
           <Announcement />
    </div>
       </div>
