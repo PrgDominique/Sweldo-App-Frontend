@@ -30,12 +30,12 @@ const Dashboard = () => {
   return (
     <>
     
-      <div className='container  flex'>
-        <div className='w-1/6  p-4 shadow-md lg:max-w-lg  '>
+      <div className=' grid grid-cols-2 '>
+        <div className='w-1/3 p-4 shadow-md lg:max-w-lg col-span-1 h-1/6'>
           <TimeCard isClockIn={isClockIn} />
 
         </div>
-        <div className='w-1/3 p-4 shadow-md lg:max-w-lg float-right'>
+        <div className='w-1/3 p-5 shadow-md lg:max-w-lg col-span-1 place-self-end h-screen '>
           <Announcement />
           
    </div>
