@@ -9,6 +9,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     getDashboard()
+    // eslint-disable-next-line
   }, [])
 
   const getDashboard = async () => {
