@@ -72,13 +72,13 @@ const TimeCard = ({ isClockIn }) => {
         // if User already clock in, show Time Out button
         isClockIn ? (
           <>
-            <SubmitTimeButton name='Time Out' onClick={handleTimeOut} loading={loading} />
+            <SubmitButton name='Time Out' onClick={handleTimeOut} loading={loading} />
             <SuccessAlert message={success?.message} />
           </>
         ) : (
           // if User already clock out, show Time In button
           <>
-            <SubmitTimeButton name='Time In' onClick={handleTimeIn} loading={loading} />
+            <SubmitButton name='Time In' onClick={handleTimeIn} loading={loading} />
             <SuccessAlert message={success?.message} />
             <DangerAlert message={error?.message} />
 
