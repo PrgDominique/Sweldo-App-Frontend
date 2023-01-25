@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import SubmitTimeButton from '../../../ui/buttons/SubmitTimeButton'
+import SubmitButton from '../../../ui/buttons/SubmitButton'
 import * as RestApi from '../../../../utils/rest_api_util'
 import SuccessAlert from '../../../ui/alerts/SuccessAlert'
 import DangerAlert from '../../../ui/alerts/DangerAlert'
@@ -72,13 +72,13 @@ const TimeCard = ({ isClockIn }) => {
         // if User already clock in, show Time Out button
         isClockIn ? (
           <>
-            <SubmitTimeButton name='Time Out' onClick={handleTimeOut} />
+            <SubmitButton name='Time Out' onClick={handleTimeOut} />
             <SuccessAlert message={success?.message} />
           </>
         ) : (
           // if User already clock out, show Time In button
           <>
-            <SubmitTimeButton name='Time In' onClick={handleTimeIn} />
+            <SubmitButton name='Time In' onClick={handleTimeIn} />
             <SuccessAlert message={success?.message} />
             <DangerAlert message={error?.message} />
 
