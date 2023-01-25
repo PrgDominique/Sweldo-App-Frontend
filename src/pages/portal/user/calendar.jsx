@@ -1,5 +1,11 @@
+import CalendarForm from '../../../components/portal/user/calendar/CalendarForm'
+
 const Calendar = () => {
-  return <div>Calendar</div>
+  return (
+    <div>
+      <CalendarForm />
+    </div>
+  )
 }
 
 export default Calendar
