@@ -20,8 +20,8 @@ import ResetPasswordPage from './pages/auth/reset_password'
 import VerifyAccountPage from './pages/verify/verify_account'
 
 // Portal
-import Dashboard from './pages/portal/dashboard'
-import Profile from './pages/portal/profile'
+import Dashboard from './pages/portal/user/dashboard'
+import Profile from './pages/portal/user/profile'
 
 // Not found
 import PageNotFound from './pages/404'
