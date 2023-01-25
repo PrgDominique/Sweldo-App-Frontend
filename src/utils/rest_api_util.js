@@ -28,6 +28,7 @@ export const getAnnouncement = async () => await fetch(baseUrl + "/dashboard/ann
 export const clockIn = async (data) => await fetch(baseUrl + "/dashboard/clock-in", { method: "POST", headers: getHeaders() })
 export const clockOut = async (data) => await fetch(baseUrl + "/dashboard/clock-out", { method: "POST", headers: getHeaders() })
 export const getMySweldo = async () => await fetch(baseUrl + "/my-sweldo", { method: "GET", headers: getHeaders() })
+export const getTasks = async (data) => await fetch(baseUrl + `/calendar/task/${data}`, { method: "GET", headers: getHeaders() })
 
 /*
     Admin routes
