@@ -7,7 +7,6 @@ import AuthInput from '../ui/inputs/AuthInput'
 import * as RestApi from '../../utils/rest_api_util'
 
 const ForgotPasswordForm = () => {
-
   const [formData, setFormData] = useState({
     email: '',
   })
@@ -65,7 +64,12 @@ const ForgotPasswordForm = () => {
         <SuccessAlert message={success?.message} />
       </div>
       <div className='mb-8'>
-        <SubmitButton name='Send me an email' onClick={handleSubmit} loading={loading} />
+        <SubmitButton
+          name='Send me an email'
+          onClick={handleSubmit}
+          loading={loading}
+          fullWidth={true}
+        />
       </div>
       <hr className='mb-4' />
       <div>

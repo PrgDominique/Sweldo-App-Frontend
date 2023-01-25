@@ -119,6 +119,7 @@ const ResetPasswordForm = () => {
           name='Reset Password'
           onClick={handleSumbit}
           loading={loading}
+          fullWidth={true}
         />
       </div>
     </>
