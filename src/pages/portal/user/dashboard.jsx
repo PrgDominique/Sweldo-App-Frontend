@@ -30,25 +30,19 @@ const Dashboard = () => {
 
   return (
     <>
-    
-      <div className=' grid grid-cols-2 '>
-        <div className='w-1/3 p-4 shadow-md lg:max-w-lg col-span-1 h-1/3'>
-          <TimeCard isClockIn={isClockIn} />
+     <div className='w-1/2 p-5 shadow-md lg:max-w-lg  overflow-auto float-right h-2/3 '>
+              <Announcement />
+            </div>
+    <div className="flex gap-x-12 ">
 
+          <div className='w-1/4 p-4 shadow-md lg:max-w-lg col-span-1 h-auto'>
+            <TimeCard isClockIn={isClockIn} />
+          </div>
+          <div className='w-1/3 p-4 shadow-md lg:max-w-lg col-span-1 h-auto flex  justify-center'>
+            <Calendar />
         </div>
-        
-        <div className='w-1/3 p-5 shadow-md lg:max-w-lg gridcol-span-1 place-self-end h-auto '>
-          <Announcement />
-   </div>
-      </div>
-      <div className=' grid grid-cols-2 '>
-      <div className='w-1/3 p-4 shadow-md lg:max-w-lg col-span-1 h-auto'>
-          <Calendar />
-
-        </div>
-        
-      </div>
-
+    </div>
+           
     </>
   )
 }

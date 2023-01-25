@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Outlet, useNavigate } from 'react-router-dom'
-import Navbar from '../Navbar'
-import PortalNavbar from '../PortalNavbar'
 import Sidebar from '../Sidebar'
+import PortalNavbar from '../PortalNavbar'
 
 const UserLayout = () => {
   const navigate = useNavigate()
@@ -27,11 +26,26 @@ const UserLayout = () => {
   }
 
   return (
-    <div className='flex overflow-x-hidden'>
+    <div className='flex'>
+      {/* Sidebar */}
       <Sidebar activeSidebar={activeSidebar} toggleSidebar={toggleSidebar} />
-      <div className='flex-1'>
-        <PortalNavbar toggleSidebar={toggleSidebar} />
-        <div className="p-5">
+
+      {/* Right side */}
+      <div
+        className={
+          activeSidebar
+            ? 'w-full transition-all duration-300 ml-64'
+            : 'w-full transition-all duration-300'
+        }
+      >
+        {/* Navbar */}
+        <PortalNavbar
+          activeSidebar={activeSidebar}
+          toggleSidebar={toggleSidebar}
+        />
+
+        {/* Content */}
+        <div className='p-5'>
           <Outlet />
         </div>
       </div>
