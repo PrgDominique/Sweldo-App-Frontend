@@ -24,6 +24,7 @@ export const resetPassword = async (data) => await fetch(baseUrl + "/reset-passw
     Authenticated routes
 */
 export const getDashboard = async () => await fetch(baseUrl + "/dashboard", { method: "GET", headers: getHeaders() })
+export const getAnnouncement = async () => await fetch(baseUrl + "/dashboard/announcement", { method: "GET", headers: getHeaders() })
 export const clockIn = async (data) => await fetch(baseUrl + "/dashboard/clock-in", { method: "POST", headers: getHeaders() })
 export const clockOut = async (data) => await fetch(baseUrl + "/dashboard/clock-out", { method: "POST", headers: getHeaders() })
 export const getMySweldo = async () => await fetch(baseUrl + "/my-sweldo", { method: "GET", headers: getHeaders() })
