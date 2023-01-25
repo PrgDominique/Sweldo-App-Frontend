@@ -27,10 +27,16 @@ const Dashboard = () => {
 
   return (
     <>
-      <div className='container m-5 '>
-        <div className='w-1/3 p-4 shadow-md lg:max-w-lg'>
+    
+      <div className='container m-5 flex'>
+        <div className='w-1/6 m-5 p-4 shadow-md lg:max-w-lg h-1/6 '>
           <TimeCard isClockIn={isClockIn} />
+
         </div>
+        <div className='w-1/3 p-4 shadow-md lg:max-w-lg'>
+          <h1>Announcement</h1>
+          
+   </div>
       </div>
     </>
   )

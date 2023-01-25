@@ -68,23 +68,31 @@ const TimeCard = ({ isClockIn }) => {
   return (
     //default Time In button
     <>
+   <div className="grid grid-cols-1">
+
       {
         // if User already clock in, show Time Out button
         isClockIn ? (
           <>
+      
             <SubmitButton name='Time Out' onClick={handleTimeOut} loading={loading} />
+          <div className="flex flex-row ">
             <SuccessAlert message={success?.message} />
+          </div>
           </>
         ) : (
           // if User already clock out, show Time In button
           <>
             <SubmitButton name='Time In' onClick={handleTimeIn} loading={loading} />
+
             <SuccessAlert message={success?.message} />
             <DangerAlert message={error?.message} />
 
           </>
         )
       }
+   </div>
+     
     </>
   )
 }
