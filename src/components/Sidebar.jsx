@@ -19,88 +19,101 @@ const Sidebar = ({ activeSidebar, toggleSidebar }) => {
   }
 
   return (
-    <aside
-      className={
-        activeSidebar
-          ? 'bg-white fixed w-full h-screen md:static md:w-64 md:h-auto flex flex-col transition-all duration-300'
-          : 'bg-white fixed w-64 h-screen md:static flex flex-col transition-all duration-300 -ml-64'
-      }
-    >
-      <div className='bg-black/50 h-20 flex items-center px-5'>
-        <button
-          className='block md:hidden bg-blue-600 text-white font-medium p-2 rounded hover:bg-blue-500'
-          onClick={toggleSidebar}
-        >
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            fill='none'
-            viewBox='0 0 24 24'
-            strokeWidth='1.5'
-            stroke='currentColor'
-            className='w-6 h-6'
+    <>
+      {/* Hack */}
+      <div
+        className={
+          activeSidebar
+            ? 'w-64 transition-all duration-300'
+            : 'w-64 transition-all duration-300 -ml-64'
+        }
+      ></div>
+      {/* Sidebar */}
+      <aside
+        className={
+          activeSidebar
+            ? 'bg-violet-500 fixed w-full md:w-64 h-screen transition-all duration-300'
+            : 'bg-violet-500 fixed w-64 h-screen transition-all duration-300 -ml-64'
+        }
+      >
+        {/* Toggle */}
+        <div className='bg-white h-20 flex items-center px-5'>
+          <button
+            className='block md:hidden bg-blue-600 text-white font-medium p-2 rounded hover:bg-blue-500'
+            onClick={toggleSidebar}
           >
-            <path
-              strokeLinecap='round'
-              strokeLinejoin='round'
-              d='M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12'
-            />
-          </svg>
-        </button>
-      </div>
-      <nav className='flex-1'>
-        <ul className='flex flex-col space-y-5 p-5'>
-          <li>
-            <p className='p-5 text-center bg-black text-white rounded'>
-              Welcome, User
-            </p>
-          </li>
-          {admin === false ? (
-            <>
-              <li className='flex'>
-                <SidebarButton name='Dashboard' to='dashboard' />
-              </li>
-              <li className='flex'>
-                <SidebarButton name='Calendar' to='calendar' />
-              </li>
-              <li className='flex'>
-                <SidebarButton name='My Sweldo' to='my-sweldo' />
-              </li>
-              <li className='flex'>
-                <SidebarButton name='Profile' to='profile' />
-              </li>
-            </>
-          ) : (
-            <>
-              <li className='flex'>
-                <SidebarButton name='Dashboard' to='dashboard' />
-              </li>
-            </>
-          )}
-          <li className='flex'>
-            <button
-              className='w-full flex space-x-5 text-black font-medium px-5 py-2.5 rounded hover:bg-blue-600 hover:text-white'
-              onClick={logout}
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              fill='none'
+              viewBox='0 0 24 24'
+              strokeWidth='1.5'
+              stroke='currentColor'
+              className='w-6 h-6'
             >
-              <svg
-                xmlns='http://www.w3.org/2000/svg'
-                fill='none'
-                viewBox='0 0 24 24'
-                strokeWidth='1.5'
-                stroke='currentColor'
-                className='w-6 h-6'
+              <path
+                strokeLinecap='round'
+                strokeLinejoin='round'
+                d='M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12'
+              />
+            </svg>
+          </button>
+        </div>
+        {/* Menu */}
+        <nav>
+          <ul className='flex flex-col space-y-5 p-5'>
+            <li>
+              <p className='p-5 text-center bg-black text-white rounded'>
+                Welcome, User
+              </p>
+            </li>
+            {admin === false ? (
+              <>
+                <li className='flex'>
+                  <SidebarButton name='Dashboard' to='dashboard' />
+                </li>
+                <li className='flex'>
+                  <SidebarButton name='Calendar' to='calendar' />
+                </li>
+                <li className='flex'>
+                  <SidebarButton name='My Sweldo' to='my-sweldo' />
+                </li>
+                <li className='flex'>
+                  <SidebarButton name='Profile' to='profile' />
+                </li>
+              </>
+            ) : (
+              <>
+                <li className='flex'>
+                  <SidebarButton name='Dashboard' to='dashboard' />
+                </li>
+              </>
+            )}
+            <li className='flex'>
+              <button
+                className='w-full flex space-x-5 text-black font-medium px-5 py-2.5 rounded hover:bg-blue-600 hover:text-white'
+                onClick={logout}
               >
-                <path
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                  d='M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75'
-                />
-              </svg>
-              <span>Logout</span>
-            </button>
-          </li>
-        </ul>
-      </nav>
-    </aside>
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  fill='none'
+                  viewBox='0 0 24 24'
+                  strokeWidth='1.5'
+                  stroke='currentColor'
+                  className='w-6 h-6'
+                >
+                  <path
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                    d='M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75'
+                  />
+                </svg>
+                <span>Logout</span>
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+    </>
   )
 }
 
