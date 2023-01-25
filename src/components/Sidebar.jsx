@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import SidebarButton from './ui/buttons/SidebarButton'
-import SubmitButton from './ui/buttons/SubmitButton'
 
-const Sidebar = ({ activeSidebar }) => {
+const Sidebar = ({ activeSidebar, toggleSidebar }) => {
   const navigate = useNavigate()
   const [admin, setAdmin] = useState(false)
 
@@ -23,15 +22,38 @@ const Sidebar = ({ activeSidebar }) => {
     <aside
       className={
         activeSidebar
-          ? 'w-64 flex flex-col transition-all duration-300'
-          : 'w-64 flex flex-col transition-all duration-300 -ml-64'
+          ? 'bg-white absolute w-full h-screen md:static md:w-64 flex flex-col transition-all duration-300'
+          : 'bg-white absolute w-64 h-screen md:static flex flex-col transition-all duration-300 -ml-64'
       }
     >
-      <div className='bg-blue-600 h-64 flex justify-center items-center p-5'>
-        <p>Welcome Jason</p>
+      <div className='bg-black/50 h-20 flex items-center px-5'>
+        <button
+          className='block md:hidden bg-blue-600 text-white font-medium p-2 rounded hover:bg-blue-500'
+          onClick={toggleSidebar}
+        >
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            fill='none'
+            viewBox='0 0 24 24'
+            strokeWidth='1.5'
+            stroke='currentColor'
+            className='w-6 h-6'
+          >
+            <path
+              strokeLinecap='round'
+              strokeLinejoin='round'
+              d='M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12'
+            />
+          </svg>
+        </button>
       </div>
-      <nav className='bg-black/50 flex-1'>
+      <nav className='flex-1'>
         <ul className='flex flex-col space-y-5 p-5'>
+          <li>
+            <p className='p-5 text-center bg-black text-white rounded'>
+              Welcome, User
+            </p>
+          </li>
           {admin === false ? (
             <>
               <li className='flex'>
