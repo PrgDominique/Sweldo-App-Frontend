@@ -8,6 +8,7 @@ import * as RestApi from '../../../utils/rest_api_util'
 const Dashboard = () => {
   const navigate = useNavigate()
   const [isClockIn, setIsClockIn] = useState(false)
+  const [announcements, setAnnouncements] = useState([])
 
   useEffect(() => {
     getDashboard()
@@ -20,6 +21,8 @@ const Dashboard = () => {
       const response = await result.json()
       if (result.status === 200) {
         setIsClockIn(response.isClockIn)
+        setAnnouncements(response.announcements)
+
       }
       if (result.status === 401) {
         localStorage.clear()
@@ -32,7 +35,7 @@ const Dashboard = () => {
     <>
 
      <div className='w-1/2 p-5 shadow-md lg:max-w-lg  overflow-auto float-right announce flex justify-center'>
-              <Announcement />
+              <Announcement announcements={announcements}/>
             </div>
     <div className="flex gap-x-12 ">
 
