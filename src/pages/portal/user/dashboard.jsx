@@ -30,12 +30,12 @@ const Dashboard = () => {
   return (
     <>
     
-      <div className='container m-5 flex'>
-        <div className='w-1/6 m-5 p-4 shadow-md lg:max-w-lg h-1/6 '>
+      <div className='container  flex'>
+        <div className='w-1/6  p-4 shadow-md lg:max-w-lg  '>
           <TimeCard isClockIn={isClockIn} />
 
         </div>
-        <div className='w-1/3 p-4 shadow-md lg:max-w-lg'>
+        <div className='w-1/3 p-4 shadow-md lg:max-w-lg float-right'>
           <Announcement />
           
    </div>

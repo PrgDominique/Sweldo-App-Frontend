@@ -75,7 +75,7 @@ const TimeCard = ({ isClockIn }) => {
         isClockIn ? (
           <>
 
-          <div className="grid">
+          <div className="grid mb-3">
             <SubmitButton name='Time Out' onClick={handleTimeOut} loading={loading} />
             <SuccessAlert message={success?.message} />
           </div>
@@ -88,7 +88,7 @@ const TimeCard = ({ isClockIn }) => {
 
             <SubmitButton name='Time In' onClick={handleTimeIn} loading={loading} />
           </div>
-
+            
             <SuccessAlert message={success?.message} />
             <DangerAlert message={error?.message} />
 
