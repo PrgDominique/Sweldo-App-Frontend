@@ -22,7 +22,7 @@ const Sidebar = ({ activeSidebar, toggleSidebar }) => {
     <aside
       className={
         activeSidebar
-          ? 'bg-white fixed z-10 w-full md:w-64 h-screen transition-all duration-300'
+          ? 'bg-emerald-500 fixed z-10 w-full md:w-64 h-screen transition-all duration-300'
           : 'bg-white fixed z-10 w-64 h-screen transition-all duration-300 -ml-64'
       }
     >
@@ -68,7 +68,7 @@ const Sidebar = ({ activeSidebar, toggleSidebar }) => {
                 <SidebarButton name='My Sweldo' to='my-sweldo' />
               </li>
               <li className='flex'>
-                <SidebarButton name='Profile' to='profile' />
+                <SidebarButton name='Profile' to='/profile' />
               </li>
             </>
           ) : (
