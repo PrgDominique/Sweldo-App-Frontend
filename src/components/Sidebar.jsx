@@ -9,7 +9,7 @@ const Sidebar = ({ activeSidebar }) => {
 
   useEffect(() => {
     const isAdmin = localStorage.getItem('is_admin')
-    if (isAdmin === 1) {
+    if (isAdmin === '1') {
       setAdmin(true)
     }
   }, [])

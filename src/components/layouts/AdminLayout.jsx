@@ -12,7 +12,7 @@ const AdminLayout = () => {
       navigate('/')
       return
     }
-    if (isAdmin === 0) {
+    if (isAdmin === '0') {
       navigate('/dashboard')
       return
     }
