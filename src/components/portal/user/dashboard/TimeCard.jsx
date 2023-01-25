@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import SubmitTimeButton from '../../../ui/buttons/SubmitTimeButton'
+import SubmitButton from '../../../ui/buttons/SubmitButton'
 import * as RestApi from '../../../../utils/rest_api_util'
 import SuccessAlert from '../../../ui/alerts/SuccessAlert'
 import DangerAlert from '../../../ui/alerts/DangerAlert'

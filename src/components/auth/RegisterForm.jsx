@@ -148,6 +148,7 @@ const RegisterForm = () => {
           name='Register'
           onClick={handleSubmit}
           loading={loading}
+          fullWidth={true}
         />
       </div>
       <hr className='mb-4' />

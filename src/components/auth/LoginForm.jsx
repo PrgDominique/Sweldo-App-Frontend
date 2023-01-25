@@ -37,8 +37,16 @@ const LoginForm = () => {
             password: '',
           }
         })
+        localStorage.setItem('first_name', response.user.first_name)
+        localStorage.setItem('last_name', response.user.last_name)
+        localStorage.setItem('email', response.user.email)
+        localStorage.setItem('is_admin', response.user.is_admin)
         localStorage.setItem('token', response.user.access_token)
-        navigate('/dashboard')
+        if (response.user.is_admin == 0) {
+          navigate('/dashboard')
+          return
+        }
+        navigate('/admin/dashboard')
       }
     } catch (error) {}
     setLoading(false)
@@ -87,7 +95,12 @@ const LoginForm = () => {
         <SuccessAlert message={success?.message} />
       </div>
       <div className='mb-8'>
-        <SubmitButton name='Login' onClick={handleSubmit} loading={loading} />
+        <SubmitButton
+          name='Login'
+          onClick={handleSubmit}
+          loading={loading}
+          fullWidth={true}
+        />
       </div>
       <hr className='mb-4' />
       <div>

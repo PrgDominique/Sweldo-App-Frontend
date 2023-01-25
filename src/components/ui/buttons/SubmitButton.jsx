@@ -1,11 +1,15 @@
-const SubmitButton = ({ name, onClick, loading = false }) => {
+const SubmitButton = ({ name, onClick, loading = false, fullWidth = false }) => {
   return (
     <button
       type='button'
       className={
         loading
-          ? 'w-full bg-blue-700 text-white font-medium px-5 py-2.5 rounded'
-          : 'w-full bg-blue-600 text-white font-medium px-5 py-2.5 rounded hover:bg-blue-700'
+          ? fullWidth
+            ? 'w-full bg-blue-700 text-white font-medium px-5 py-2.5 rounded'
+            : 'bg-blue-700 text-white font-medium px-5 py-2.5 rounded'
+          : fullWidth
+            ? 'w-full bg-blue-600 text-white font-medium px-5 py-2.5 rounded hover:bg-blue-700'
+            : 'bg-blue-600 text-white font-medium px-5 py-2.5 rounded hover:bg-blue-700'
       }
       onClick={onClick}
       disabled={loading}
