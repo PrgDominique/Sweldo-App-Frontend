@@ -35,7 +35,7 @@ const Dashboard = () => {
           <TimeCard isClockIn={isClockIn} />
 
         </div>
-        <div className='w-1/3 p-5 shadow-md lg:max-w-lg col-span-1 place-self-end h-screen '>
+        <div className='w-1/3 p-5 shadow-md lg:max-w-lg col-span-1 place-self-end h-auto '>
           <Announcement />
           
    </div>
