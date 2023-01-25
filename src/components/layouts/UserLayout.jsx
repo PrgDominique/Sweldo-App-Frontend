@@ -31,7 +31,9 @@ const UserLayout = () => {
       <Sidebar activeSidebar={activeSidebar} />
       <div className='flex-1'>
         <PortalNavbar toggleSidebar={toggleSidebar} />
-        <Outlet />
+        <div className="p-5">
+          <Outlet />
+        </div>
       </div>
     </div>
   )
