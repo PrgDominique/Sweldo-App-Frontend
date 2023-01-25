@@ -26,7 +26,7 @@ const UserLayout = () => {
   }
 
   return (
-    <div className='flex'>
+    <div className='flex overflow-x-hidden'>
       {/* Sidebar */}
       <Sidebar activeSidebar={activeSidebar} toggleSidebar={toggleSidebar} />
 
