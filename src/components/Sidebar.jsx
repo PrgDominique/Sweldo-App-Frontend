@@ -22,8 +22,8 @@ const Sidebar = ({ activeSidebar, toggleSidebar }) => {
     <aside
       className={
         activeSidebar
-          ? 'bg-white absolute w-full h-screen md:static md:w-64 flex flex-col transition-all duration-300'
-          : 'bg-white absolute w-64 h-screen md:static flex flex-col transition-all duration-300 -ml-64'
+          ? 'bg-white fixed w-full h-screen md:static md:w-64 md:h-auto flex flex-col transition-all duration-300'
+          : 'bg-white fixed w-64 h-screen md:static flex flex-col transition-all duration-300 -ml-64'
       }
     >
       <div className='bg-black/50 h-20 flex items-center px-5'>
