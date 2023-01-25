@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import SidebarButton from './ui/buttons/SidebarButton'
 
 const Sidebar = () => {
@@ -8,7 +8,7 @@ const Sidebar = () => {
 
   useEffect(() => {
     const isAdmin = localStorage.getItem('is_admin')
-    if (isAdmin == 1) {
+    if (isAdmin === 1) {
       setAdmin(true)
     }
   }, [])
@@ -21,7 +21,7 @@ const Sidebar = () => {
   return (
     <nav className='bg-gray-500 h-screen w-64'>
       <ul className='w-full space-y-5 flex flex-col bg-white/50 p-5'>
-        {admin == false ? (
+        {admin === false ? (
           <>
             <li className='flex'>
               <SidebarButton name='Dashboard' to='dashboard' />

@@ -12,10 +12,11 @@ const UserLayout = () => {
       navigate('/')
       return
     }
-    if (isAdmin == 1) {
+    if (isAdmin === 1) {
       navigate('/admin/dashboard')
       return
     }
+    // eslint-disable-next-line
   }, [])
 
   return (
