@@ -26,11 +26,26 @@ const AdminLayout = () => {
   }
 
   return (
-    <div className='flex overflow-x-hidden h-screen'>
-      <Sidebar activeSidebar={activeSidebar} />
-      <div className='flex-1'>
-        <PortalNavbar toggleSidebar={toggleSidebar} />
-        <div className="p-5">
+    <div className='flex'>
+      {/* Sidebar */}
+      <Sidebar activeSidebar={activeSidebar} toggleSidebar={toggleSidebar} />
+
+      {/* Right side */}
+      <div
+        className={
+          activeSidebar
+            ? 'w-full transition-all duration-300 ml-64'
+            : 'w-full transition-all duration-300'
+        }
+      >
+        {/* Navbar */}
+        <PortalNavbar
+          activeSidebar={activeSidebar}
+          toggleSidebar={toggleSidebar}
+        />
+
+        {/* Content */}
+        <div className='p-5'>
           <Outlet />
         </div>
       </div>
