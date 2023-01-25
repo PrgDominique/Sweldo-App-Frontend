@@ -10,6 +10,7 @@ const AuthLayout = () => {
       navigate('/dashboard')
       return
     }
+    // eslint-disable-next-line
   }, [])
 
   return (
