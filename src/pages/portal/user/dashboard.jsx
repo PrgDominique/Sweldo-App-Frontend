@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Announcement from '../../../components/portal/user/dashboard/Announcement'
+import Calendar from '../../../components/portal/user/dashboard/Calendar'
 import TimeCard from '../../../components/portal/user/dashboard/TimeCard'
 import * as RestApi from '../../../utils/rest_api_util'
 
@@ -31,8 +32,12 @@ const Dashboard = () => {
     <>
     
       <div className=' grid grid-cols-2 '>
-        <div className='w-1/3 p-4 shadow-md lg:max-w-lg col-span-1 h-1/6'>
+        <div className='w-1/3 p-4 shadow-md lg:max-w-lg col-span-1 h-1/3'>
           <TimeCard isClockIn={isClockIn} />
+
+        </div>
+        <div className='w-1/3 p-4 shadow-md lg:max-w-lg col-span-1 h-1/3'>
+          <Calendar />
 
         </div>
         <div className='w-1/3 p-5 shadow-md lg:max-w-lg col-span-1 place-self-end h-auto '>
