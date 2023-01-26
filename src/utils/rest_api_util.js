@@ -31,6 +31,7 @@ export const getMySweldo = async () => await fetch(baseUrl + "/my-sweldo", { met
 export const getMonthlyTasks = async (data) => await fetch(baseUrl + `/calendar/task/monthly/${data}`, { method: "GET", headers: getHeaders() })
 export const getDailyTasks = async (data) => await fetch(baseUrl + `/calendar/task/daily/${data}`, { method: "GET", headers: getHeaders() })
 export const addTask = async (data) => await fetch(baseUrl + `/calendar/task`, { method: "POST", headers: getHeaders(), body: JSON.stringify(data) })
+export const deleteTask = async (id) => await fetch(baseUrl + `/calendar/task/${id}/delete`, { method: "POST", headers: getHeaders() })
 
 /*
     Admin routes
