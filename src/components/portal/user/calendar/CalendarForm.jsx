@@ -2,12 +2,16 @@ import { Calendar } from 'react-calendar'
 import './CalendarForm.css'
 import * as RestApi from '../../../../utils/rest_api_util'
 import { useEffect, useState } from 'react'
+import TaskForm from './TaskForm'
 
 const CalendarForm = () => {
+  const [selectedDate, setSelectedDate] = useState()
+  const [month, setMonth] = useState(0)
   const [monthlyTasks, setMonthlyTasks] = useState([])
   const [dailyTasks, setDailyTasks] = useState([])
 
   useEffect(() => {
+    setMonth(new Date().getMonth())
     getMonthlyTasks(Date.parse(new Date()) / 1000)
   }, [])
 
@@ -32,6 +36,8 @@ const CalendarForm = () => {
   }
 
   const onActiveStartDateChange = async ({ activeStartDate }) => {
+    // Set month
+    setMonth(activeStartDate.getMonth())
     // Clear tasks when navigating
     setMonthlyTasks([])
     setDailyTasks([])
@@ -40,6 +46,7 @@ const CalendarForm = () => {
   }
 
   const onChange = async (value) => {
+    setSelectedDate(Date.parse(value) / 1000)
     getDailyTasks(Date.parse(value) / 1000)
   }
 
@@ -50,6 +57,7 @@ const CalendarForm = () => {
         onChange={onChange}
         tileContent={({ date, view }) => {
           return view === 'month' &&
+            month == date.getMonth() &&
             monthlyTasks[date.getDate()] !== undefined ? (
             <div className='mt-1 flex justify-center'>
               <div className='bg-blue-100 text-blue-800 text-xs font-medium p-1 rounded'>
@@ -59,14 +67,16 @@ const CalendarForm = () => {
           ) : null
         }}
       />
-      <div className='space-y-5 pt-5'>
+
+      <div className='bg-white shadow-lg mt-5 p-5'>
         {dailyTasks.length !== 0 && <h1 className='text-2xl'>Task List</h1>}
         {dailyTasks.map((task) => (
-          <div key={task.id} className='bg-white rounded shadow-md p-5'>
-            {task.name}
-          </div>
+          <div key={task.id}>{task.name}</div>
         ))}
       </div>
+
+      {/* Task form */}
+      {selectedDate !== undefined && <TaskForm selectedDate={selectedDate} />}
     </div>
   )
 }
