@@ -58,27 +58,27 @@ const Sidebar = ({ activeSidebar, toggleSidebar }) => {
           </li>
           {admin === false ? (
             <>
-              <li className='flex text-2xl p-5'>
+              <li className='flex'>
                 <SidebarButton name='Dashboard' to='dashboard'/>
               </li>
-              <li className='flex text-2xl p-5'>
+              <li className='flex'>
                 <SidebarButton name='Calendar' to='calendar' />
               </li>
-              <li className='flex text-2xl p-5'>
+              <li className='flex'>
                 <SidebarButton name='My Sweldo' to='my-sweldo' />
               </li>
-              <li className='flex text-2xl p-5'>
+              <li className='flex'>
                 <SidebarButton name='Profile' to='/profile' />
               </li>
             </>
           ) : (
             <>
-              <li className='flex text-2xl p-5'>
+              <li className='flex'>
                 <SidebarButton name='Dashboard' to='dashboard' />
               </li>
             </>
           )}
-          <li className='flex text-2xl p-5 text-white'>
+          <li className='flextext-white'>
             <button
               className='w-full flex space-x-5 text-black font-medium px-5 py-2.5 rounded hover:bg-blue-600 hover:text-white'
               onClick={logout}
