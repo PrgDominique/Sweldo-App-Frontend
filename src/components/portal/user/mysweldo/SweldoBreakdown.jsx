@@ -1,4 +1,4 @@
-const MySweldo = () => {
+const Sweldo = () => {
   return (
     <>
       <div className="container mx-auto">
@@ -41,4 +41,4 @@ const MySweldo = () => {
   );
 };
 
-export default MySweldo;
+export default Sweldo;
