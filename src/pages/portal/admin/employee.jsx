@@ -19,7 +19,6 @@ const EmployeePage = () => {
       const result = await RestApi.getEmployees(page)
       const response = await result.json()
       if (result.status === 200) {
-        console.log(response.employees)
         setEmployees(response.employees)
       }
       if (result.status === 401) {
