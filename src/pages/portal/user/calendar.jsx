@@ -1,6 +1,6 @@
 import CalendarForm from '../../../components/portal/user/calendar/CalendarForm'
 
-const Calendar = () => {
+const CalendarPage = () => {
   return (
     <div>
       <CalendarForm />
@@ -8,4 +8,4 @@ const Calendar = () => {
   )
 }
 
-export default Calendar
+export default CalendarPage

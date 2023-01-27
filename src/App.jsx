@@ -22,7 +22,7 @@ import VerifyAccountPage from './pages/verify/verify_account'
 
 // User portal
 import Dashboard from './pages/portal/user/dashboard'
-import Calendar from './pages/portal/user/calendar'
+import CalendarPage from './pages/portal/user/calendar'
 import MySweldo from './pages/portal/user/my-sweldo'
 import Profile from './pages/portal/user/profile'
 
@@ -80,7 +80,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'calendar',
-        element: <Calendar />
+        element: <CalendarPage />
       },
       {
         path: 'my-sweldo',
