@@ -27,7 +27,7 @@ import MySweldo from './pages/portal/user/my-sweldo'
 import Profile from './pages/portal/user/profile'
 
 // Admin portal
-import AdminDashboard from './pages/portal/admin/admin_dashboard'
+import AdminDashboardPage from './pages/portal/admin/admin_dashboard'
 
 // Not found
 import PageNotFound from './pages/404'
@@ -99,7 +99,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: 'dashboard',
-        element: <AdminDashboard />,
+        element: <AdminDashboardPage />,
       },
     ]
   },

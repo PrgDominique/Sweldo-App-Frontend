@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import * as RestApi from '../../../utils/rest_api_util'
 
-const AdminDashboard = () => {
+const AdminDashboardPage = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -27,4 +27,4 @@ const AdminDashboard = () => {
   return <div>Admin Dashboard</div>
 }
 
-export default AdminDashboard
+export default AdminDashboardPage
