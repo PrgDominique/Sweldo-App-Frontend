@@ -9,12 +9,14 @@ const AuthInput = ({
 }) => {
   return (
     <div>
-      <label
-        htmlFor={id}
-        className='block text-gray-700 text-sm font-medium mb-2'
-      >
-        {label}
-      </label>
+      {label !== undefined && (
+        <label
+          htmlFor={id}
+          className='block text-gray-700 text-sm font-medium mb-2'
+        >
+          {label}
+        </label>
+      )}
       <input
         className={
           error
