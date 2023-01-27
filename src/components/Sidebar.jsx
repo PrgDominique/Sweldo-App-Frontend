@@ -76,6 +76,9 @@ const Sidebar = ({ activeSidebar, toggleSidebar }) => {
               <li className='flex'>
                 <SidebarButton name='Dashboard' to='dashboard' />
               </li>
+              <li className='flex'>
+                <SidebarButton name='Employee' to='employee' />
+              </li>
             </>
           )}
           <li className='flextext-white'>
