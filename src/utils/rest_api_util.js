@@ -37,4 +37,4 @@ export const deleteTask = async (id) => await fetch(baseUrl + `/calendar/task/${
     Admin routes
 */
 export const getAdminDashboard = async () => await fetch(baseUrl + "/admin", { method: "GET", headers: getHeaders() })
-export const getEmployees = async (page) => await fetch(baseUrl + "/admin/employee", { method: "GET", headers: getHeaders() })
+export const getEmployees = async (page) => await fetch(baseUrl + `/admin/employee?page=${page}`, { method: "GET", headers: getHeaders() })
