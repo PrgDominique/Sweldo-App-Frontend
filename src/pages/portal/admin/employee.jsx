@@ -46,14 +46,22 @@ const EmployeePage = () => {
             </thead>
             <tbody>
               {employees !== undefined &&
-                employees.data.map((employee, index) => (
-                  <tr key={index} className='border-b'>
-                    <th className='p-2.5'>{employee.id}</th>
-                    <td className='p-2.5'>{employee.first_name}</td>
-                    <td className='p-2.5'>{employee.last_name}</td>
-                    <td className='p-2.5'>{employee.email}</td>
-                    <td className='p-2.5'>
-                      <button>Edit</button>
+                (employees.data.length !== 0 ? (
+                  employees.data.map((employee, index) => (
+                    <tr key={index} className='border-b'>
+                      <th className='p-2.5'>{employee.id}</th>
+                      <td className='p-2.5'>{employee.first_name}</td>
+                      <td className='p-2.5'>{employee.last_name}</td>
+                      <td className='p-2.5'>{employee.email}</td>
+                      <td className='p-2.5'>
+                        <button>Edit</button>
+                      </td>
+                    </tr>
+                  ))
+                ) : (
+                  <tr>
+                    <td colSpan='5' className='text-center p-2.5'>
+                      No employee available
                     </td>
                   </tr>
                 ))}
@@ -63,7 +71,7 @@ const EmployeePage = () => {
         <div>
           <ul className='flex gap-2'>
             {/* TODO: Implement pagination */}
-            {employees !== undefined &&
+            {employees !== undefined && employees.data.length !== 0 &&
               employees.links.map((link, key) => {
                 if (key === 0) {
                   return (
