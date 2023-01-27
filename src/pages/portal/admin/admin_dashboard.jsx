@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import StatisticCard from '../../../components/portal/admin/dashboard/StatisticCard'
 import * as RestApi from '../../../utils/rest_api_util'
 
 const AdminDashboardPage = () => {
@@ -24,7 +25,14 @@ const AdminDashboardPage = () => {
     } catch (error) {}
   }
 
-  return <div>Admin Dashboard</div>
+  return <div>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+      <StatisticCard name='Total Employee' value='200' />
+      <StatisticCard name='Working Days' value='24' />
+      <StatisticCard name='Payment Date' value='Jan 30, 2023' />
+      <StatisticCard name='On Leave' value='5' />
+    </div>
+  </div>
 }
 
 export default AdminDashboardPage
