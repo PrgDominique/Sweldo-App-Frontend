@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import Pagination from '../../../components/portal/admin/employee/Pagination'
 import * as RestApi from '../../../utils/rest_api_util'
 
 const EmployeePage = () => {
@@ -69,87 +70,7 @@ const EmployeePage = () => {
           </table>
         </div>
         <div>
-          <ul className='flex gap-2'>
-            {/* TODO: Implement pagination */}
-            {employees !== undefined && employees.data.length !== 0 &&
-              employees.links.map((link, key) => {
-                if (key === 0) {
-                  return (
-                    <li key={key}>
-                      <button
-                        className={
-                          link.url !== null
-                            ? 'bg-blue-600 text-white font-medium p-2.5 rounded'
-                            : 'bg-gray-600 text-white font-medium p-2.5 rounded'
-                        }
-                        onClick={() => getEmployees(employees.current_page - 1)}
-                        disabled={link.url === null}
-                      >
-                        <svg
-                          xmlns='http://www.w3.org/2000/svg'
-                          fill='none'
-                          viewBox='0 0 24 24'
-                          strokeWidth='1.5'
-                          stroke='currentColor'
-                          className='w-6 h-6'
-                        >
-                          <path
-                            strokeLinecap='round'
-                            strokeLinejoin='round'
-                            d='M15.75 19.5L8.25 12l7.5-7.5'
-                          />
-                        </svg>
-                      </button>
-                    </li>
-                  )
-                }
-                if (key === employees.links.length - 1) {
-                  return (
-                    <li key={key}>
-                      <button
-                        className={
-                          link.url !== null
-                            ? 'bg-blue-600 text-white font-medium p-2.5 rounded'
-                            : 'bg-gray-600 text-white font-medium p-2.5 rounded'
-                        }
-                        onClick={() => getEmployees(employees.current_page + 1)}
-                        disabled={link.url === null}
-                      >
-                        <svg
-                          xmlns='http://www.w3.org/2000/svg'
-                          fill='none'
-                          viewBox='0 0 24 24'
-                          strokeWidth='1.5'
-                          stroke='currentColor'
-                          className='w-6 h-6'
-                        >
-                          <path
-                            strokeLinecap='round'
-                            strokeLinejoin='round'
-                            d='M8.25 4.5l7.5 7.5-7.5 7.5'
-                          />
-                        </svg>
-                      </button>
-                    </li>
-                  )
-                }
-                return (
-                  <li key={key}>
-                    <button
-                      className={
-                        link.active
-                          ? 'bg-blue-600 text-white font-medium px-5 py-2.5 rounded'
-                          : 'bg-gray-600 text-white font-medium px-5 py-2.5 rounded hover:bg-blue-600'
-                      }
-                      onClick={() => getEmployees(link.label)}
-                      disabled={link.active}
-                    >
-                      {link.label}
-                    </button>
-                  </li>
-                )
-              })}
-          </ul>
+          <Pagination pagination={employees} onClick={getEmployees} />
         </div>
       </div>
     </div>
