@@ -75,6 +75,7 @@ const CalendarForm = () => {
           }
         })
         setDailyTasks((prevData) => [...prevData, response.task])
+        getMonthlyTasks(selectedDate)
       }
     } catch (error) {}
     setShowInput(false)
@@ -85,6 +86,7 @@ const CalendarForm = () => {
       const result = await RestApi.deleteTask(id)
       if (result.status === 200) {
         setDailyTasks(dailyTasks.filter(task => task.id !== id))
+        getMonthlyTasks(selectedDate)
       }
     } catch (error) {}
   }
