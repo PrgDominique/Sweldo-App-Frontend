@@ -28,6 +28,7 @@ import Profile from './pages/portal/user/profile'
 
 // Admin portal
 import AdminDashboardPage from './pages/portal/admin/admin_dashboard'
+import EmployeePage from './pages/portal/admin/employee'
 
 // Not found
 import PageNotFound from './pages/404'
@@ -101,6 +102,10 @@ const router = createBrowserRouter([
         path: 'dashboard',
         element: <AdminDashboardPage />,
       },
+      {
+        path: 'employee',
+        element: <EmployeePage />
+      }
     ]
   },
   // 404
