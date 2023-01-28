@@ -21,7 +21,6 @@ const Dashboard = () => {
       if (result.status === 200) {
         setIsClockIn(response.isClockIn)
         setAnnouncements(response.announcements)
-
       }
       if (result.status === 401) {
         localStorage.clear()
@@ -32,32 +31,24 @@ const Dashboard = () => {
 
   return (
     <>
-    
-<div className="grid grid-cols-4">
+      <div className='grid grid-cols-4'>
+        <div className='row-span-1'></div>
 
-<div className='row-span-1'>
-             
-            </div>
+        <div className='row-span-1'></div>
+        <div className='row-span-1'></div>
 
-<div className='row-span-1'>
-             
-            </div>
-<div className='row-span-1'>
-             
-            </div>
-
-<div className="col-span-1 ">
-
-          <div className='announce overflow-auto mb-5 shadow '>
-          <Announcement announcements={announcements}/>
-        </div>
+        <div className='col-span-1 gap-12'>
+          <h1 className=' flex justify-center font-bold text-xl mb-5'>
+            Announcement
+          </h1>
+          <div className='announce overflow-auto mb-5 shadow flex justify-center'>
+            <Announcement announcements={announcements} />
+          </div>
           <div className='shoadow mt-6'>
             <TimeCard isClockIn={isClockIn} />
           </div>
-</div>
-</div>
-
-           
+        </div>
+      </div>
     </>
   )
 }
