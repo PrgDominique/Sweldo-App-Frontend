@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import StatisticCard from '../../../components/portal/admin/dashboard/StatisticCard'
+import StatisticCard from '../../../components/ui/cards/StatisticCard'
+
 import * as RestApi from '../../../utils/rest_api_util'
 
 const AdminDashboardPage = () => {
