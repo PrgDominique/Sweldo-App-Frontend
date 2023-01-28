@@ -32,10 +32,20 @@ const Dashboard = () => {
   return (
     <>
       <div className='grid grid-cols-4'>
-        <div className='row-span-1'></div>
+        <div className='col-span-3'>
+          <div className='grid grid-cols-3'>
+            <div className='row-span-1'>qwe</div>
 
-        <div className='row-span-1'></div>
-        <div className='row-span-1'></div>
+            <div className='row-span-1'>asd</div>
+
+            <div className='row-span-1'>zxc</div>
+          </div>
+          
+        </div>
+          <div className='col-span-3'>
+            qwe
+          </div>
+          
 
         <div className='col-span-1 gap-12'>
           <h1 className=' flex justify-center font-bold text-xl mb-5'>
