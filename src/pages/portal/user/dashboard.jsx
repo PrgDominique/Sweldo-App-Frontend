@@ -48,6 +48,8 @@ const Dashboard = () => {
           
 
         <div className='col-span-1 gap-12'>
+          <div className="grid cols-span-1">
+
           <h1 className=' flex justify-center font-bold text-xl mb-5'>
             Announcement
           </h1>
@@ -56,6 +58,7 @@ const Dashboard = () => {
           </div>
           <div className='shoadow mt-6'>
             <TimeCard isClockIn={isClockIn} />
+          </div>
           </div>
         </div>
       </div>
