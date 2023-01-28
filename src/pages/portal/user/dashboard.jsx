@@ -31,9 +31,9 @@ const Dashboard = () => {
 
   return (
     <>
-      <div className='grid grid-cols-6'>
-        <div className='col-span-4'>
-          <div className='grid grid-cols-4 gap-5'>
+      <div className='grid xl:grid-cols-8 lg:grid-cols-6 md:grid-cols-4 grid-cols-2'>
+        <div className='xl:col-span-6 lg:col-span-4 md:col-span-4 col-span-2'>
+          <div className='grid xl:grid-cols-4 lg:grid-cols-2 md:grid-cols-2 grid-cols-2 gap-5'>
             <div className='col-span-1 shadow h-24 w-48 justify-center flex items-center'>Weekly</div>
 
             <div className='col-span-1 shadow justify-center flex items-center h-24 w-48'>Monthly</div>
@@ -44,17 +44,15 @@ const Dashboard = () => {
           
         </div>
      
-          
+    
 
-        <div className='col-span-2 '>
-          <div className="grid cols-span-1">
+        <div className='xl:col-span-2 lg:col-span-2 col-span-4 mt-11   '>
 
           <h1 className=' flex justify-center font-bold text-xl '>
             Announcement
           </h1>
           <div className='announce overflow-auto mb-5 shadow flex justify-center'>
             <Announcement announcements={announcements} />
-          </div>
           
           </div>
         </div>
