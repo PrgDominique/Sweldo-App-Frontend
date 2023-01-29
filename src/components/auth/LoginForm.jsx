@@ -43,7 +43,7 @@ const LoginForm = () => {
         localStorage.setItem('email', response.user.email)
         localStorage.setItem('is_admin', response.user.is_admin)
         localStorage.setItem('token', response.user.access_token)
-        if (response.user.is_admin === '0') {
+        if (response.user.is_admin === 0) {
           navigate('/dashboard')
           return
         }
