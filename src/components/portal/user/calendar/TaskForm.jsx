@@ -14,6 +14,8 @@ const TaskForm = ({ selectedDate, getMonthlyTasks, closeForm }) => {
     date: selectedDate,
   })
 
+  const [loading, setLoading] = useState(false)
+
   useEffect(() => {
     getDailyTasks()
   }, [])
@@ -33,6 +35,7 @@ const TaskForm = ({ selectedDate, getMonthlyTasks, closeForm }) => {
   }
 
   const addTask = async (id) => {
+    setLoading(true)
     try {
       const result = await RestApi.addTask(formData)
       const response = await result.json()
@@ -47,6 +50,7 @@ const TaskForm = ({ selectedDate, getMonthlyTasks, closeForm }) => {
         getMonthlyTasks(selectedDate)
       }
     } catch (error) {}
+    setLoading(false)
     setShowInput(false)
   }
 
@@ -130,7 +134,11 @@ const TaskForm = ({ selectedDate, getMonthlyTasks, closeForm }) => {
                       setFormData({ ...formData, name: e.target.value })
                     }
                   />
-                  <SubmitButton name='Add' onClick={addTask} />
+                  <SubmitButton
+                    name='Add'
+                    onClick={addTask}
+                    loading={loading}
+                  />
                 </>
               ) : (
                 <SubmitButton name='Add a task' onClick={showAddTaskForm} />
