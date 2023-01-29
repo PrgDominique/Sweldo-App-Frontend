@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import StatisticCard from '../../../components/ui/cards/StatisticCard'
+import PageTitle from '../../../components/ui/titles/PageTitle'
 
 import * as RestApi from '../../../utils/rest_api_util'
 
@@ -32,6 +33,7 @@ const AdminDashboardPage = () => {
 
   return (
     <div>
+      <PageTitle title='Dashboard' />
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5'>
         <StatisticCard name='Total Employee' value={stats.totalEmployee} />
         {/* Not final */}
