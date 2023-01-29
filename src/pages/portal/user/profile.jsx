@@ -1,5 +1,7 @@
+import PageTitle from '../../../components/ui/titles/PageTitle'
 
 const Profile = () => {
+
     return (
         <>
         <div className="border-2 border-blue p-5 m-5 ">
@@ -32,6 +34,7 @@ const Profile = () => {
         
         
     )
+
 }
 
 export default Profile

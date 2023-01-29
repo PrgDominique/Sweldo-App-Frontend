@@ -5,6 +5,7 @@ import SuccessAlert from '../ui/alerts/SuccessAlert'
 import SubmitButton from '../ui/buttons/SubmitButton'
 import AuthInput from '../ui/inputs/AuthInput'
 import * as RestApi from '../../utils/rest_api_util'
+import FormTitle from '../ui/titles/FormTitle'
 
 const RegisterForm = () => {
   const [formData, setFormData] = useState({
@@ -59,7 +60,7 @@ const RegisterForm = () => {
 
   return (
     <>
-      <h1 className='mb-4 text-3xl font-bold'>Register</h1>
+      <FormTitle title='Register' />
       <div className='mb-8 space-y-4'>
         <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
           <AuthInput
