@@ -11,13 +11,14 @@ const EmployeeTable = ({ employees }) => {
     normal: '',
   })
 
+  const [loading, setLoading] = useState(false)
+
   const getEmployee = async (employee) => {
     try {
       const result = await RestApi.getEmployee(employee.id)
       const response = await result.json()
       if (result.status === 200) {
         setFormData({ ...formData, normal: response.normal })
-        console.log(employee)
         setSelectedEmployee(employee)
       }
       if (result.status === 401) {
@@ -28,6 +29,7 @@ const EmployeeTable = ({ employees }) => {
   }
 
   const updateEmployee = async () => {
+    setLoading(true)
     try {
       const result = await RestApi.updateEmployee(selectedEmployee.id, formData)
       const response = await result.json()
@@ -39,6 +41,7 @@ const EmployeeTable = ({ employees }) => {
         navigate('/')
       }
     } catch (error) {}
+    setLoading(false)
   }
 
   return (
@@ -58,7 +61,7 @@ const EmployeeTable = ({ employees }) => {
             (employees.data.length !== 0 ? (
               employees.data.map((employee, index) => (
                 <tr key={index} className='border-b'>
-                  <th className='p-2.5'>{employee.id}</th>
+                  <th className='p-2.5'>{employees.from + index}</th>
                   <td className='p-2.5'>{employee.first_name}</td>
                   <td className='p-2.5'>{employee.last_name}</td>
                   <td className='p-2.5'>{employee.email}</td>
@@ -79,9 +82,12 @@ const EmployeeTable = ({ employees }) => {
       {selectedEmployee !== undefined && (
         <div className='bg-black/75 fixed top-0 left-0 z-10 w-full h-screen flex items-center p-5'>
           <div className='w-full flex justify-center'>
-            <div className='bg-white w-full lg:w-1/2 rounded flex flex-col p-5'>
+            <div className='bg-white w-full lg:w-1/2 rounded p-5'>
               <div className='flex justify-between mb-4'>
-                <h1 className='text-3xl font-bold'>{selectedEmployee.first_name} {selectedEmployee.last_name}'s Details</h1>
+                <h1 className='text-3xl font-bold'>
+                  {selectedEmployee.first_name} {selectedEmployee.last_name}'s
+                  Details
+                </h1>
                 <button
                   className='bg-blue-600 text-white font-medium p-2 rounded hover:bg-blue-500'
                   onClick={() => setSelectedEmployee(undefined)}
@@ -114,7 +120,11 @@ const EmployeeTable = ({ employees }) => {
                   }
                 />
               </div>
-              <SubmitButton name='Update' onClick={updateEmployee} />
+              <SubmitButton
+                name='Update'
+                onClick={updateEmployee}
+                loading={loading}
+              />
             </div>
           </div>
         </div>
