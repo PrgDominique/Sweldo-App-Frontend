@@ -1,6 +1,6 @@
 const Pagination = ({ pagination, onClick }) => {
   return (
-    <ul className='flex gap-2'>
+    <ul className='flex flex-wrap gap-2'>
       {pagination !== undefined &&
         pagination.data.length !== 0 &&
         pagination.links.map((link, key) => {
