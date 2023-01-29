@@ -23,10 +23,13 @@ export const resetPassword = async (data) => await fetch(baseUrl + "/reset-passw
 /* 
     Authenticated routes
 */
-export const getDashboard = async () => await fetch(baseUrl + "/dashboard", { method: "GET", headers: getHeaders() })
 
+// Dashboard
+export const getDashboard = async () => await fetch(baseUrl + "/dashboard", { method: "GET", headers: getHeaders() })
 export const clockIn = async (data) => await fetch(baseUrl + "/dashboard/clock-in", { method: "POST", headers: getHeaders() })
 export const clockOut = async (data) => await fetch(baseUrl + "/dashboard/clock-out", { method: "POST", headers: getHeaders() })
+
+// Calendar
 export const getMonthlyTasks = async (data) => await fetch(baseUrl + `/calendar/task/monthly/${data}`, { method: "GET", headers: getHeaders() })
 export const getDailyTasks = async (data) => await fetch(baseUrl + `/calendar/task/daily/${data}`, { method: "GET", headers: getHeaders() })
 export const addTask = async (data) => await fetch(baseUrl + `/calendar/task`, { method: "POST", headers: getHeaders(), body: JSON.stringify(data) })
@@ -35,5 +38,11 @@ export const deleteTask = async (id) => await fetch(baseUrl + `/calendar/task/${
 /*
     Admin routes
 */
+
+// Dashboard
 export const getAdminDashboard = async () => await fetch(baseUrl + "/admin", { method: "GET", headers: getHeaders() })
+
+// Employee
 export const getEmployees = async (page) => await fetch(baseUrl + `/admin/employee?page=${page}`, { method: "GET", headers: getHeaders() })
+export const getEmployee = async (id) => await fetch(baseUrl + `/admin/employee/${id}`, { method: "GET", headers: getHeaders() })
+export const updateEmployee = async (id, data) => await fetch(baseUrl + `/admin/employee/${id}`, { method: "POST", headers: getHeaders(), body: JSON.stringify(data) })
