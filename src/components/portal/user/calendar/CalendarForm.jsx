@@ -136,7 +136,7 @@ const CalendarForm = () => {
                 </button>
               </div>
               <div className='flex-1 overflow-auto'>
-                <div className='space-y-5 p-5'>
+                <div className='space-y-4 p-5'>
                   {dailyTasks.map((task) => (
                     <div
                       key={task.id}
