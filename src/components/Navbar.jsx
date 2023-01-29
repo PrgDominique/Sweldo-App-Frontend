@@ -10,7 +10,7 @@ const Navbar = () => {
         <ul>
           <li className='space-x-5'>
             <SecondaryButton name='Login' to='login' />
-            <PrimaryButton name='Apply Now' to='register' />
+            <PrimaryButton name='Register' to='register' />
           </li>
         </ul>
       </div>
