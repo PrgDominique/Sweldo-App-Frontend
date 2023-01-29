@@ -50,7 +50,7 @@ const Sidebar = ({ activeSidebar, toggleSidebar }) => {
       </div>
       {/* Menu */}
       <nav>
-        <ul className='flex flex-col space-y-5 p-5'>
+        <ul className='flex flex-col space-y-4 p-5'>
           <li>
             <p className='p-5 text-center bg-black text-white rounded'>
               Welcome, User
@@ -63,9 +63,6 @@ const Sidebar = ({ activeSidebar, toggleSidebar }) => {
               </li>
               <li className='flex'>
                 <SidebarButton name='Calendar' to='calendar' />
-              </li>
-              <li className='flex'>
-                <SidebarButton name='My Sweldo' to='my-sweldo' />
               </li>
               <li className='flex'>
                 <SidebarButton name='Profile' to='/profile' />
