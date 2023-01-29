@@ -5,6 +5,7 @@ import SuccessAlert from '../ui/alerts/SuccessAlert'
 import SubmitButton from '../ui/buttons/SubmitButton'
 import AuthInput from '../ui/inputs/AuthInput'
 import * as RestApi from '../../utils/rest_api_util'
+import FormTitle from '../ui/titles/FormTitle'
 
 const ResetPasswordForm = () => {
   const location = useLocation()
@@ -73,7 +74,7 @@ const ResetPasswordForm = () => {
 
   return (
     <>
-      <h1 className='mb-4 text-3xl font-bold'>Reset Password</h1>
+      <FormTitle title='Reset Password' />
       <div className='mb-8 space-y-4'>
         <AuthInput
           label='New Password'
