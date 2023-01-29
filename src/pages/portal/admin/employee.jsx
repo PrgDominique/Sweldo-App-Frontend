@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import EmployeeTable from '../../../components/portal/admin/employee/EmployeeTable'
 import Pagination from '../../../components/portal/admin/employee/Pagination'
+import PageTitle from '../../../components/ui/titles/PageTitle'
 import * as RestApi from '../../../utils/rest_api_util'
 
 const EmployeePage = () => {
@@ -30,9 +31,7 @@ const EmployeePage = () => {
 
   return (
     <div>
-      <div className='mb-5'>
-        <h1 className='text-3xl font-bold'>Employee Page</h1>
-      </div>
+      <PageTitle title='Employee' />
       <div>
         <div className='mb-5'>
           <EmployeeTable employees={employees} />
