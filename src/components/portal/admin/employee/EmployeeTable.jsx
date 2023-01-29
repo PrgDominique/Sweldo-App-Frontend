@@ -1,9 +1,5 @@
 import { useState } from 'react'
-import AuthInput from '../../../ui/inputs/AuthInput'
 import * as RestApi from '../../../../utils/rest_api_util'
-import { useNavigate } from 'react-router-dom'
-import SubmitButton from '../../../ui/buttons/SubmitButton'
-import FormTitle from '../../../ui/titles/FormTitle'
 import EmployeeForm from './EmployeeForm'
 
 const EmployeeTable = ({ employees }) => {
