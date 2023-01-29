@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import * as RestApi from '../../../../utils/rest_api_util'
 import SubmitButton from '../../../ui/buttons/SubmitButton'
 import AuthInput from '../../../ui/inputs/AuthInput'
+import FormTitle from '../../../ui/titles/FormTitle'
 
 const TaskForm = ({ selectedDate, getMonthlyTasks, closeForm }) => {
   const [dailyTasks, setDailyTasks] = useState([])
@@ -69,36 +70,38 @@ const TaskForm = ({ selectedDate, getMonthlyTasks, closeForm }) => {
       <div className='w-full h-full flex justify-center'>
         <div className='bg-white w-full lg:w-1/2 rounded flex flex-col'>
           {/* Form title */}
-          <div className='flex justify-between mb-5 p-5'>
-            <h1 className='text-2xl'>Task List</h1>
-            <button
-              className='bg-blue-600 text-white font-medium p-2 rounded hover:bg-blue-500'
-              onClick={closeForm}
-            >
-              <svg
-                xmlns='http://www.w3.org/2000/svg'
-                fill='none'
-                viewBox='0 0 24 24'
-                strokeWidth='1.5'
-                stroke='currentColor'
-                className='w-6 h-6'
+          <div className='flex justify-between pt-5 px-5'>
+            <FormTitle title='Task List' />
+            <div>
+              <button
+                className='bg-blue-600 text-white font-medium p-2 rounded hover:bg-blue-500'
+                onClick={closeForm}
               >
-                <path
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                  d='M6 18L18 6M6 6l12 12'
-                />
-              </svg>
-            </button>
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  fill='none'
+                  viewBox='0 0 24 24'
+                  strokeWidth='1.5'
+                  stroke='currentColor'
+                  className='w-6 h-6'
+                >
+                  <path
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                    d='M6 18L18 6M6 6l12 12'
+                  />
+                </svg>
+              </button>
+            </div>
           </div>
           {/* Form content */}
           <div className='flex-1 overflow-auto'>
-            <div className='space-y-4 p-5'>
+            <div className='space-y-4 px-5'>
               {/* Task list */}
               {dailyTasks.map((task) => (
                 <div
                   key={task.id}
-                  className='flex justify-between items-center hover:bg-blue-100 rounded p-2'
+                  className='flex justify-between items-center hover:bg-blue-100 rounded pl-2'
                 >
                   {task.name}
                   <button
