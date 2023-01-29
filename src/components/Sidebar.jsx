@@ -65,9 +65,6 @@ const Sidebar = ({ activeSidebar, toggleSidebar }) => {
                 <SidebarButton name='Calendar' to='calendar' />
               </li>
               <li className='flex'>
-                <SidebarButton name='My Sweldo' to='my-sweldo' />
-              </li>
-              <li className='flex'>
                 <SidebarButton name='Profile' to='/profile' />
               </li>
             </>
