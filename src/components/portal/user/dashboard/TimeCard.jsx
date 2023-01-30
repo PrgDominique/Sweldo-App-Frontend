@@ -4,7 +4,7 @@ import * as RestApi from '../../../../utils/rest_api_util'
 import SuccessAlert from '../../../ui/alerts/SuccessAlert'
 import DangerAlert from '../../../ui/alerts/DangerAlert'
 
-const TimeCard = ({ isClockIn }) => {
+const TimeCard = ({ isClockIn}) => {
   const [timeIn, setTimeIn] = useState(true)
   const [timeOut, setTimeOut] = useState(false)
   const [loading, setLoading] = useState(false)
@@ -12,13 +12,8 @@ const TimeCard = ({ isClockIn }) => {
   const [success, setSuccess] = useState()
   const [time, setTime] = useState(new Date().toLocaleTimeString())
 
-  //temporary date
-  const options = {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric',
-  }
+
+
 
   // rerender the isClockIn state after clock in
   //and clean the success message after 3 seconds
@@ -73,7 +68,6 @@ const TimeCard = ({ isClockIn }) => {
 
   //get the current time every second
 
-  const date = new Date().toLocaleDateString('en-us', options)
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -85,16 +79,16 @@ const TimeCard = ({ isClockIn }) => {
   return (
     //default Time In button
     <>
-      <div className='grid grid-cols-1'>
-        <div className='flex justify-center'>
-          <h1 className='col-span-1 text-2xl mb-4'>{time}</h1>
+      <div className=''>
+       
+          {/* <h1 className='col-span-1 text-2xl mb-4'>{time}</h1> */}
         </div>
 
         {
           // if User already clock in, show Time Out button
           isClockIn ? (
             <>
-              <div className='grid mb-3'>
+              <div className=' mb-3'>
                 <SubmitButton
                   name='Time Out'
                   onClick={handleTimeOut}
@@ -106,7 +100,7 @@ const TimeCard = ({ isClockIn }) => {
           ) : (
             // if User already clock out, show Time In button
             <>
-              <div className='grid mb-3'>
+              <div className=' mb-3'>
                 <SubmitButton
                   name='Time In'
                   onClick={handleTimeIn}
@@ -119,11 +113,11 @@ const TimeCard = ({ isClockIn }) => {
             </>
           )
         }
-        <div className="flex justify-center">
+      
 
-        <h1 className='text-1xl'>{date}</h1>
-        </div>
-      </div>
+        {/* data */}
+        {/* <h1 className='text-1xl'>{date}</h1> */}
+      
     </>
   )
 }

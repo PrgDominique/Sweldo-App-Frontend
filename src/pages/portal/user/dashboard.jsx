@@ -12,7 +12,18 @@ const Dashboard = () => {
   const [announcements, setAnnouncements] = useState([])
   const [weekly, setWeekly] = useState(0)
   const [monthly, setMonthly] = useState(0)
-  const [normalRate , setNormalRate] = useState(0)
+  const [normalRate, setNormalRate] = useState(0)
+
+    //temporary date
+    const options = {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+    }
+
+    //date
+  const date = new Date().toLocaleDateString('en-us', options)
 
   useEffect(() => {
     getDashboard()
@@ -47,11 +58,27 @@ const Dashboard = () => {
             <StatisticCard name='weekly' value={weekly} />
             <StatisticCard name='monthly' value={monthly} />
             <StatisticCard name='rate' value={normalRate} />
-            <StatisticCard name='expected salary' value={monthly * normalRate} />
-         
+            <StatisticCard
+              name='expected salary'
+              value={monthly * normalRate}
+            />
+
             {/* Graph and attendance */}
             <div className='md:col-span-2 lg:col-span-4 bg-white shadow p-5'>
-              Attendance
+              <div className="grid md:grid-cols-4 grid-cols-1 gap-5">
+
+              <div className='md:col-span-2 '>
+                <h1>Attendance</h1>
+              </div>
+              <div className='md:col-span-2 md:flex justify-end'>
+              {date}
+              
+              </div>
+
+              <div className="">
+                <TimeCard />
+              </div>
+              </div>
             </div>
           </div>
         </div>
