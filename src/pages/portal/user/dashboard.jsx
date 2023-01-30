@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import Announcement from '../../../components/portal/user/dashboard/Announcement'
 import TimeCard from '../../../components/portal/user/dashboard/TimeCard'
 import StatisticCard from '../../../components/ui/cards/StatisticCard'
+import AuthInput from '../../../components/ui/inputs/AuthInput'
 import PageTitle from '../../../components/ui/titles/PageTitle'
 import * as RestApi from '../../../utils/rest_api_util'
 
@@ -13,16 +14,19 @@ const Dashboard = () => {
   const [weekly, setWeekly] = useState(0)
   const [monthly, setMonthly] = useState(0)
   const [normalRate, setNormalRate] = useState(0)
+  const [formData, setFormData] = useState({
+    notes: '',
+  })
 
-    //temporary date
-    const options = {
-      weekday: 'long',
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric',
-    }
+  //temporary date
+  const options = {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+  }
 
-    //date
+  //date
   const date = new Date().toLocaleDateString('en-us', options)
 
   useEffect(() => {
@@ -64,21 +68,37 @@ const Dashboard = () => {
             />
 
             {/* Graph and attendance */}
-            <div className='md:col-span-2 lg:col-span-4 bg-white shadow p-5'>
-              <div className="grid md:grid-cols-4 grid-cols-1 gap-5">
+            {/* <div className='md:col-span-2 lg:col-span-4 bg-white shadow p-5'>
+              <div className='grid md:grid-cols-4 grid-cols-1 gap-5'>
+                <div className='md:col-span-2 max-md:mb-5 max-md:flex max-md:justify-center font-bold'>
+                  <h1>Attendance</h1>
+                </div>
+                <div className='md:col-span-2 flex justify-end max-md:mb-5  max-md:justify-center font-bold'>
+                  {date}
+                </div>
 
-              <div className='md:col-span-2 max-md:mb-5 max-md:flex max-md:justify-center font-bold'>
-                <h1>Attendance</h1>
-              </div>
-              <div className='md:col-span-2 flex justify-end max-md:mb-5  max-md:justify-center font-bold'>
-              {date}
-              
-              </div>
+                <div className=' md:col-span-2 col-span-1 '>
+                
+                </div>
 
-              <div className="">
-                <TimeCard />
+                <div className=' md:col-span-2 col-span-1'>
+                  <TimeCard isClockIn={isClockIn} />
+                </div>
               </div>
-              </div>
+            </div> */}
+            <div className='col-span-1 md:col-span-2 lg:col-span-3'>
+              <AuthInput
+                id='notes'
+                type='text'
+                placeholder='Place your notes here'
+                value={formData.notes}
+                onChange={(e) =>
+                  setFormData({ ...formData, notes: e.target.value })
+                }
+              />
+            </div>
+            <div className='col-span-1 md:col-span-2 lg:col-span-1'>
+              <TimeCard isClockIn={isClockIn} />
             </div>
           </div>
         </div>

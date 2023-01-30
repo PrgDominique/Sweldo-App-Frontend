@@ -17,14 +17,14 @@ const TimeCard = ({ isClockIn}) => {
 
   // rerender the isClockIn state after clock in
   //and clean the success message after 3 seconds
-  useEffect(() => {
-    RestApi.getDashboard()
+  // useEffect(() => {
+  //   RestApi.getDashboard()
 
-    const timer = setTimeout(() => {
-      setSuccess(undefined)
-    }, 3000)
-    return () => clearTimeout(timer)
-  }, [isClockIn])
+  //   const timer = setTimeout(() => {
+  //     setSuccess(undefined)
+  //   }, 3000)
+  //   return () => clearTimeout(timer)
+  // }, [isClockIn])
 
   // button time in function
   const handleTimeIn = async () => {
@@ -90,9 +90,10 @@ const TimeCard = ({ isClockIn}) => {
             <>
               <div className=' mb-3'>
                 <SubmitButton
-                  name='Time Out'
+                  name={`Time Out (${time})`}
                   onClick={handleTimeOut}
                   loading={loading}
+                  fullWidth={true}
                 />
                 <SuccessAlert message={success?.message} />
               </div>
@@ -102,9 +103,10 @@ const TimeCard = ({ isClockIn}) => {
             <>
               <div className=' mb-3'>
                 <SubmitButton
-                  name={`Time In ${time}`}
+                  name={`Time In (${time})`}
                   onClick={handleTimeIn}
                   loading={loading}
+                  fullWidth={true}
                 />
               </div>
 
