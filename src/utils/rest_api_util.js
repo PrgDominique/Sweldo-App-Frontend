@@ -35,6 +35,9 @@ export const getDailyTasks = async (data) => await fetch(baseUrl + `/calendar/ta
 export const addTask = async (data) => await fetch(baseUrl + `/calendar/task`, { method: "POST", headers: getHeaders(), body: JSON.stringify(data) })
 export const deleteTask = async (id) => await fetch(baseUrl + `/calendar/task/${id}/delete`, { method: "POST", headers: getHeaders() })
 
+// Profile
+export const getProfile = async () => await fetch(baseUrl + `/profile`, { method: "GET", headers: getHeaders() })
+
 /*
     Admin routes
 */
