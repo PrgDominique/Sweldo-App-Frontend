@@ -44,6 +44,6 @@ export const getAdminDashboard = async () => await fetch(baseUrl + "/admin", { m
 
 // Employee
 export const getEmployees = async (page) => await fetch(baseUrl + `/admin/employee?page=${page}`, { method: "GET", headers: getHeaders() })
-export const findEmployee = async (data) => await fetch(baseUrl + `/admin/employee/find/${data}`, { method: "GET", headers: getHeaders() })
+export const findEmployee = async (name) => await fetch(baseUrl + `/admin/employee/search/${name}`, { method: "GET", headers: getHeaders() })
 export const getEmployee = async (id) => await fetch(baseUrl + `/admin/employee/${id}`, { method: "GET", headers: getHeaders() })
 export const updateEmployee = async (id, data) => await fetch(baseUrl + `/admin/employee/${id}`, { method: "POST", headers: getHeaders(), body: JSON.stringify(data) })
