@@ -102,7 +102,7 @@ const TimeCard = ({ isClockIn}) => {
             <>
               <div className=' mb-3'>
                 <SubmitButton
-                  name='Time In'
+                  name={`Time In ${time}`}
                   onClick={handleTimeIn}
                   loading={loading}
                 />
