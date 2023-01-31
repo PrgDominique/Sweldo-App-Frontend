@@ -68,24 +68,7 @@ const Dashboard = () => {
             />
 
             {/* Graph and attendance */}
-            {/* <div className='md:col-span-2 lg:col-span-4 bg-white shadow p-5'>
-              <div className='grid md:grid-cols-4 grid-cols-1 gap-5'>
-                <div className='md:col-span-2 max-md:mb-5 max-md:flex max-md:justify-center font-bold'>
-                  <h1>Attendance</h1>
-                </div>
-                <div className='md:col-span-2 flex justify-end max-md:mb-5  max-md:justify-center font-bold'>
-                  {date}
-                </div>
-
-                <div className=' md:col-span-2 col-span-1 '>
-                
-                </div>
-
-                <div className=' md:col-span-2 col-span-1'>
-                  <TimeCard isClockIn={isClockIn} />
-                </div>
-              </div>
-            </div> */}
+        
             <div className='col-span-1 md:col-span-2 lg:col-span-3'>
               <AuthInput
                 id='notes'
