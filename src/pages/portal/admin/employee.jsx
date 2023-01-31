@@ -20,6 +20,10 @@ const EmployeePage = () => {
   }, [])
 
   const getEmployees = async (page = 1) => {
+    if (formData.name !== '') {
+      searchEmployees(formData.name, page)
+      return
+    }
     try {
       const result = await RestApi.getEmployees(page)
       const response = await result.json()
@@ -33,13 +37,9 @@ const EmployeePage = () => {
     } catch (error) {}
   }
 
-  const findEmployee = async (name) => {
-    if (name.length === 0) {
-      getEmployees(1)
-      return
-    }
+  const searchEmployees = async (name, page = 1) => {
     try {
-      const result = await RestApi.findEmployee(name)
+      const result = await RestApi.searchEmployees(name, page)
       const response = await result.json()
       if (result.status === 200) {
         setEmployees(response.employees)
@@ -61,7 +61,7 @@ const EmployeePage = () => {
             value={formData.name}
             onChange={(e) => {
               setFormData({ ...formData, name: e.target.value })
-              findEmployee(e.target.value)
+              searchEmployees(e.target.value)
             }}
           />
         </div>
