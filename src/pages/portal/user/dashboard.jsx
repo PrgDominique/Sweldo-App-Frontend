@@ -16,6 +16,8 @@ const Dashboard = () => {
   const [normalRate, setNormalRate] = useState(0)
   const [formData, setFormData] = useState({
     notes: '',
+    setWeekly: 0,
+    weekly: 0
   })
 
   //temporary date
